@@ -4,11 +4,7 @@ import Controls from "./controls";
 import Commands from "./commands";
 
 function replaceAt(string, index, replace) {
-  return (
-    string.substring(0, index) +
-    replace +
-    string.substring(index + 1)
-  );
+  return string.substring(0, index) + replace + string.substring(index + 1);
 }
 
 class Game extends Component {
@@ -40,18 +36,10 @@ class Game extends Component {
     };
     this.setState(state => {
       // Check to see if there is a function there.
-      if (
-        state.functions[funcnum] &&
-        state.functions[funcnum][index]
-      ) {
-        const { command, color } = state.functions[
-          funcnum
-        ][index];
+      if (state.functions[funcnum] && state.functions[funcnum][index]) {
+        const { command, color } = state.functions[funcnum][index];
         this.props.setDragging(true);
-        document.addEventListener(
-          "mousemove",
-          this.mouseMove
-        );
+        document.addEventListener("mousemove", this.mouseMove);
         document.addEventListener("mouseup", this.mouseUp);
         return {
           dragging: {
@@ -61,12 +49,10 @@ class Game extends Component {
           },
           functions: {
             ...state.functions,
-            [funcnum]: state.functions[funcnum].map(
-              (f, i) => {
-                if (i === parseInt(index, 10)) return null;
-                return f;
-              }
-            )
+            [funcnum]: state.functions[funcnum].map((f, i) => {
+              if (i === parseInt(index, 10)) return null;
+              return f;
+            })
           }
         };
       }
@@ -100,26 +86,17 @@ class Game extends Component {
     }));
   };
   mouseUp = evt => {
-    document.removeEventListener(
-      "mousemove",
-      this.mouseMove
-    );
+    document.removeEventListener("mousemove", this.mouseMove);
     this.props.setDragging(false);
     document.removeEventListener("mouseup", this.mouseUp);
     const funcNum = evt.target.dataset.funcnum;
-    const position = parseInt(
-      evt.target.dataset.position,
-      10
-    );
+    const position = parseInt(evt.target.dataset.position, 10);
     if (!funcNum) return this.setState({ dragging: null });
     const action = {};
     this.setState(state => {
-      if (state.dragging.command)
-        action.command = state.dragging.command;
-      if (state.dragging.color)
-        action.color = state.dragging.color;
-      if (state.dragging.color === "clear")
-        action.color = null;
+      if (state.dragging.command) action.command = state.dragging.command;
+      if (state.dragging.color) action.color = state.dragging.color;
+      if (state.dragging.color === "clear") action.color = null;
       const func = state.functions[funcNum] || [];
       func[position] = { ...func[position], ...action };
       return {
@@ -133,7 +110,7 @@ class Game extends Component {
     clearTimeout(this.timeout);
     // Start with F1
     const { functions } = this.state;
-    const starting = functions["f1"];
+    const starting = functions.f1;
     const stack = [].concat(starting);
     this.setState({ stack, clean: false });
     setTimeout(this.runStack, this.state.delay);
@@ -152,10 +129,7 @@ class Game extends Component {
         return { stack };
       }
       const { command, color } = action;
-      const boardColor =
-        Colors[parseInt(RobotRow, 10)][
-          parseInt(RobotCol, 10)
-        ];
+      const boardColor = Colors[parseInt(RobotRow, 10)][parseInt(RobotCol, 10)];
 
       if (
         !color ||
@@ -164,10 +138,7 @@ class Game extends Component {
         (color === "blue" && boardColor === "B")
       ) {
         this.performAction(command);
-        this.timeout = setTimeout(
-          this.runStack,
-          this.state.delay
-        );
+        this.timeout = setTimeout(this.runStack, this.state.delay);
       } else {
         this.runNow();
       }
@@ -180,14 +151,7 @@ class Game extends Component {
   };
   performAction = action => {
     this.setState(state => {
-      const {
-        Colors,
-        RobotRow,
-        RobotCol,
-        RobotDir,
-        functions,
-        stack
-      } = state;
+      const { Colors, RobotRow, RobotCol, RobotDir, functions, stack } = state;
       switch (action) {
         case "left":
           return {
@@ -198,36 +162,22 @@ class Game extends Component {
             RobotDir: parseInt(RobotDir, 10) + 1
           };
         case "forward":
-          switch (
-            Math.abs(parseInt(RobotDir, 10) + 400) % 4
-          ) {
+          switch (Math.abs(parseInt(RobotDir, 10) + 400) % 4) {
             case 0:
               return {
-                RobotCol: Math.max(
-                  0,
-                  parseInt(RobotCol, 10) + 1
-                )
+                RobotCol: Math.max(0, parseInt(RobotCol, 10) + 1)
               };
             case 1:
               return {
-                RobotRow: Math.max(
-                  0,
-                  parseInt(RobotRow, 10) + 1
-                )
+                RobotRow: Math.max(0, parseInt(RobotRow, 10) + 1)
               };
             case 2:
               return {
-                RobotCol: Math.max(
-                  0,
-                  parseInt(RobotCol, 10) - 1
-                )
+                RobotCol: Math.max(0, parseInt(RobotCol, 10) - 1)
               };
             case 3:
               return {
-                RobotRow: Math.max(
-                  0,
-                  parseInt(RobotRow, 10) - 1
-                )
+                RobotRow: Math.max(0, parseInt(RobotRow, 10) - 1)
               };
             default:
               return {};
@@ -251,12 +201,9 @@ class Game extends Component {
           if (color === "blue") color = "B";
           return {
             Colors: Colors.map((row, i) => {
-              if (i === parseInt(RobotRow, 10))
-                return replaceAt(
-                  row,
-                  parseInt(RobotCol, 10),
-                  color
-                );
+              if (i === parseInt(RobotRow, 10)) {
+                return replaceAt(row, parseInt(RobotCol, 10), color);
+              }
               return row;
             })
           };
@@ -267,18 +214,16 @@ class Game extends Component {
   };
   checkGame = () => {
     const { Items, RobotCol, RobotRow } = this.state;
-    if (Items[RobotRow][RobotCol] === "#")
+    if (Items[RobotRow][RobotCol] === "#") {
       return setTimeout(this.reset, this.delay * 4);
+    }
     if (Items[RobotRow][RobotCol] === "*") {
       return this.setState(
         state => ({
           Items: state.Items.map((row, i) => {
-            if (i === parseInt(RobotRow, 10))
-              return replaceAt(
-                row,
-                parseInt(RobotCol, 10),
-                "%"
-              );
+            if (i === parseInt(RobotRow, 10)) {
+              return replaceAt(row, parseInt(RobotCol, 10), "%");
+            }
             return row;
           })
         }),
@@ -287,14 +232,13 @@ class Game extends Component {
     }
     // Clear a star if we are on it.
     const stars = Items.reduce(
-      (prev, next) =>
-        prev + (next.match(/\*/g) || []).length,
+      (prev, next) => prev + (next.match(/\*/g) || []).length,
       0
     );
     if (stars === 0) {
       clearTimeout(this.timeout);
       setTimeout(() => {
-        alert("You win!");
+        window.alert("You win!");
       }, this.state.delay);
     }
   };
@@ -323,16 +267,10 @@ class Game extends Component {
                 dragging={dragging}
               />
               <div style={{ display: "flex" }}>
-                <button
-                  onClick={this.start}
-                  style={{ flex: 1 }}
-                >
+                <button onClick={this.start} style={{ flex: 1 }}>
                   Go
                 </button>
-                <button
-                  onClick={this.reset}
-                  style={{ flex: 1 }}
-                >
+                <button onClick={this.reset} style={{ flex: 1 }}>
                   Reset
                 </button>
               </div>
@@ -354,21 +292,18 @@ class Game extends Component {
           <div
             className="dragger"
             style={{
-              transform: `translate(${
-                dragging.position.x
-              }px, ${dragging.position.y}px)`
+              transform: `translate(${dragging.position.x}px, ${
+                dragging.position.y
+              }px)`
             }}
           >
             <div
               className={`command ${
-                dragging.command &&
-                dragging.command.indexOf("paint") > -1
+                dragging.command && dragging.command.indexOf("paint") > -1
                   ? "paint"
                   : ""
               } ${dragging.command} ${
-                dragging.color
-                  ? `${dragging.color} color`
-                  : ""
+                dragging.color ? `${dragging.color} color` : ""
               }`}
             />
           </div>

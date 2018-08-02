@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import boards from "./data.json";
 import "./styles.css";
@@ -17,12 +17,8 @@ class App extends Component {
           {boards.map(d => (
             <p
               key={`board-${d.Id}`}
-              className={`${
-                selectedBoard === d.Id ? "selected" : ""
-              }`}
-              onClick={() =>
-                this.setState({ selectedBoard: d.Id })
-              }
+              className={`${selectedBoard === d.Id ? "selected" : ""}`}
+              onClick={() => this.setState({ selectedBoard: d.Id })}
             >
               {d.Title}
             </p>
@@ -31,12 +27,8 @@ class App extends Component {
         {selectedBoard && (
           <Game
             key={selectedBoard}
-            setDragging={which =>
-              this.setState({ dragging: which })
-            }
-            board={boards.find(
-              b => b.Id === selectedBoard
-            )}
+            setDragging={which => this.setState({ dragging: which })}
+            board={boards.find(b => b.Id === selectedBoard)}
           />
         )}
       </div>

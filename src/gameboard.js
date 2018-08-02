@@ -13,13 +13,7 @@ const cellPiece = (row, col, Items) => {
   if (piece === "%") return "star gone";
   if (piece === ".") return "";
 };
-const GameBoard = ({
-  Colors,
-  Items,
-  RobotCol,
-  RobotRow,
-  RobotDir
-}) => (
+const GameBoard = ({ Colors, Items, RobotCol, RobotRow, RobotDir }) => (
   <div className="gameboard">
     <div className="spacer" />
     <div className="game-grid">
@@ -29,14 +23,14 @@ const GameBoard = ({
           <div key={`row-${r}`} className="game-row">
             {Array(16)
               .fill(0)
-              .map((_, c) => (
+              .map((__, c) => (
                 <div
                   key={`cell-${r}-${c}`}
-                  className={`game-cell ${cellColor(
+                  className={`game-cell ${cellColor(r, c, Colors)} ${cellPiece(
                     r,
                     c,
-                    Colors
-                  )} ${cellPiece(r, c, Items)}`}
+                    Items
+                  )}`}
                 />
               ))}
           </div>
@@ -45,8 +39,8 @@ const GameBoard = ({
     <div
       className="game-ship-holder"
       style={{
-        transform: `translate(${(100 / 16) *
-          parseInt(RobotCol, 10)}%, ${(100 / 12) *
+        transform: `translate(${(100 / 16) * parseInt(RobotCol, 10)}%, ${(100 /
+          12) *
           parseInt(RobotRow, 10)}%)`
       }}
     >
@@ -56,9 +50,7 @@ const GameBoard = ({
         src="/img/ship.svg"
         draggable="false"
         style={{
-          transform: `rotate(${parseInt(RobotDir, 10) *
-            90 +
-            90}deg)`
+          transform: `rotate(${parseInt(RobotDir, 10) * 90 + 90}deg)`
         }}
       />
     </div>

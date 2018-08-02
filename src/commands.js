@@ -31,21 +31,23 @@ const Blue = ({ onMouseDown }) => {
   );
 };
 const ColorCommands = ({ colors, onMouseDown }) => {
-  if (colors === 1)
+  if (colors === 1) {
     return (
       <Fragment>
         <Red onMouseDown={onMouseDown} />
         <div className="divider" />
       </Fragment>
     );
-  if (colors === 2)
+  }
+  if (colors === 2) {
     return (
       <Fragment>
         <Green onMouseDown={onMouseDown} />
         <div className="divider" />
       </Fragment>
     );
-  if (colors === 3)
+  }
+  if (colors === 3) {
     return (
       <Fragment>
         <Red onMouseDown={onMouseDown} />
@@ -53,27 +55,31 @@ const ColorCommands = ({ colors, onMouseDown }) => {
         <div className="divider" />
       </Fragment>
     );
-  if (colors === 4)
+  }
+  if (colors === 4) {
     return (
       <Fragment>
         <Blue onMouseDown={onMouseDown} /> <div className="divider" />
       </Fragment>
     );
-  if (colors === 5)
+  }
+  if (colors === 5) {
     return (
       <Fragment>
         <Red onMouseDown={onMouseDown} />
         <Blue onMouseDown={onMouseDown} /> <div className="divider" />
       </Fragment>
     );
-  if (colors === 6)
+  }
+  if (colors === 6) {
     return (
       <Fragment>
         <Green onMouseDown={onMouseDown} />
         <Blue onMouseDown={onMouseDown} /> <div className="divider" />
       </Fragment>
     );
-  if (colors === 7)
+  }
+  if (colors === 7) {
     return (
       <Fragment>
         <Red onMouseDown={onMouseDown} />
@@ -81,6 +87,7 @@ const ColorCommands = ({ colors, onMouseDown }) => {
         <Blue onMouseDown={onMouseDown} /> <div className="divider" />
       </Fragment>
     );
+  }
   return null;
 };
 const Commands = ({ SubLengths, AllowedCommands, dragging, onMouseDown }) => {
