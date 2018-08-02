@@ -17,7 +17,8 @@ class App extends Component {
         <GitHubForkRibbon
           href="//github.com/alexanderson1993/robozzle-react"
           target="_blank"
-          position="left"
+          position="left-bottom"
+          color="black"
         >
           Fork me on GitHub
         </GitHubForkRibbon>
