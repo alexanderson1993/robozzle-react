@@ -116,6 +116,7 @@ const Commands = ({ SubLengths, AllowedCommands, dragging, onMouseDown }) => {
         (s, i) =>
           parseInt(s, 10) > 0 && (
             <div
+              key={`sublength-${i}`}
               className={`command f${i + 1}`}
               onMouseDown={evt =>
                 onMouseDown({ x: evt.clientX, y: evt.clientY }, `f${i + 1}`)

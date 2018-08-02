@@ -17,7 +17,7 @@ const Commands = ({ SubLengths, dragging, functions, onMouseDown }) => {
       {SubLengths.map(
         (s, i) =>
           parseInt(s, 10) > 0 && (
-            <div className="function-holder">
+            <div key={`f${i + 1}`} className="function-holder">
               <img
                 draggable="false"
                 src={`img/f${i + 1}.svg`}
@@ -28,6 +28,7 @@ const Commands = ({ SubLengths, dragging, functions, onMouseDown }) => {
                   .fill(0)
                   .map((f, fi) => (
                     <div
+                      key={`f${i + 1}-${fi}`}
                       className={`function-block ${functionClasses(
                         `f${i + 1}`,
                         fi,

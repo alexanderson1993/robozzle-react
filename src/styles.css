@@ -39,6 +39,7 @@ body {
 .gameboard-holder {
   width: 75%;
   max-width: 75vh;
+  overflow: hidden;
 }
 .gameboard {
   width: 100%;
@@ -79,18 +80,7 @@ body {
 .game-cell:last-child {
   border-right: none;
 }
-.game-cell.red {
-  background-color: hsla(0, 67%, 40%, 1);
-  border-color: hsla(0, 67%, 40%);
-}
-.game-cell.blue {
-  background-color: hsla(210, 67%, 40%, 1);
-  border-color: hsla(210, 67%, 40%);
-}
-.game-cell.green {
-  background-color: hsla(128, 67%, 40%, 1);
-  border-color: hsla(128, 67%, 40%);
-}
+
 .game-cell.transparent {
   background: transparent;
   border-color: transparent;
@@ -100,7 +90,7 @@ body {
   width: 100%;
   height: 100%;
   display: block;
-  background-image: url(img/star.svg);
+  background-image: url(/img/star.svg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -183,97 +173,59 @@ body {
   width: 30px;
   height: 30px;
   margin: 5px;
-  border: solid 1px #28343b;
   border-radius: 20%;
-  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to bottom, #b5bdc8 0%, #28343b 100%);
+  background-color: hsla(0, 0%, 70%, 1);
+  border: solid 1px hsla(0, 0%, 40%);
+  background-size: 70%, 100%;
+  background-image: url(),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 .command:active {
   cursor: grabbing;
 }
 .command.forward {
-  background-size: 70%, 100%;
-  background-image: url("img/forward.svg"),
-    linear-gradient(to bottom, #b5bdc8 0%, #28343b 100%);
+  background-image: url("/img/forward.svg"),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 .command.left {
-  background-size: 70%, 100%;
-  background-image: url("img/left.svg"),
-    linear-gradient(to bottom, #b5bdc8 0%, #28343b 100%);
+  background-image: url("/img/left.svg"),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 .command.right {
-  background-size: 70%, 100%;
-  background-image: url("img/right.svg"),
-    linear-gradient(to bottom, #b5bdc8 0%, #28343b 100%);
+  background-image: url("/img/right.svg"),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 .command.f1 {
-  background-size: 70%, 100%;
-  background-image: url("img/f1.svg"),
-    linear-gradient(to bottom, #b5bdc8 0%, #28343b 100%);
+  background-image: url("/img/f1.svg"),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 .command.f2 {
-  background-size: 70%, 100%;
-  background-image: url("img/f2.svg"),
-    linear-gradient(to bottom, #b5bdc8 0%, #28343b 100%);
+  background-image: url("/img/f2.svg"),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 .command.f3 {
-  background-size: 70%, 100%;
-  background-image: url("img/f3.svg"),
-    linear-gradient(to bottom, #b5bdc8 0%, #28343b 100%);
+  background-image: url("/img/f3.svg"),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 .command.f4 {
-  background-size: 70%, 100%;
-  background-image: url("img/f4.svg"),
-    linear-gradient(to bottom, #b5bdc8 0%, #28343b 100%);
+  background-image: url("/img/f4.svg"),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 .command.f5 {
-  background-size: 70%, 100%;
-  background-image: url("img/f5.svg"),
-    linear-gradient(to bottom, #b5bdc8 0%, #28343b 100%);
+  background-image: url("/img/f5.svg"),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 .command.f6 {
-  background-size: 70%, 100%;
-  background-image: url("img/f6.svg"),
-    linear-gradient(to bottom, #b5bdc8 0%, #28343b 100%);
+  background-image: url("/img/f6.svg"),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
-.command.color {
-  background-image: linear-gradient(
-    to top,
-    hsla(0, 0%, 40%, 0.5) 0%,
-    hsla(0, 0%, 20%, 0.5) 100%
-  );
-  border: solid 1px;
+.color.clear {
+  background-color: hsla(0, 0%, 70%, 1);
+  border: solid 1px hsla(0, 0%, 40%);
 }
-.command.color.clear {
-  background-image: linear-gradient(
-    to top,
-    hsla(0, 0%, 70%, 1) 0%,
-    hsla(0, 0%, 45%, 1) 100%
-  );
-  border-color: hsla(0, 0%, 70%);
-}
-.command.color.red {
-  background-color: hsla(0, 67%, 40%, 1);
-  border-color: hsla(0, 67%, 40%);
-}
-.command.color.blue {
-  background-image: linear-gradient(
-    to top,
-    hsla(210, 67%, 40%, 1) 0%,
-    hsla(210, 67%, 20%, 1) 100%
-  );
-  border-color: hsla(210, 67%, 40%);
-}
-.command.color.green {
-  background-image: linear-gradient(
-    to top,
-    hsla(128, 67%, 40%, 1) 0%,
-    hsla(128, 67%, 20%, 1) 100%
-  );
-  border-color: hsla(128, 67%, 40%);
-}
+
 .command.paint {
   display: flex;
   justify-content: center;
@@ -312,31 +264,6 @@ body {
   border-color: hsla(128, 67%, 10%);
 }
 
-.command.color.red {
-  background-image: linear-gradient(
-    to top,
-    hsla(0, 67%, 40%, 1) 0%,
-    hsla(0, 67%, 20%, 1) 100%
-  );
-  border-color: hsla(0, 67%, 40%);
-}
-.command.color.blue {
-  background-image: linear-gradient(
-    to top,
-    hsla(210, 67%, 40%, 1) 0%,
-    hsla(210, 67%, 20%, 1) 100%
-  );
-  border-color: hsla(210, 67%, 40%);
-}
-.command.color.green {
-  background-image: linear-gradient(
-    to top,
-    hsla(128, 67%, 40%, 1) 0%,
-    hsla(128, 67%, 20%, 1) 100%
-  );
-  border-color: hsla(128, 67%, 40%);
-}
-
 .dragger {
   position: absolute;
   left: 0;
@@ -346,235 +273,18 @@ body {
   pointer-events: none;
 }
 
-.command.forward.red {
-  background-size: 70%, 100%;
-  background-image: url("img/forward.svg"),
-    linear-gradient(to top, hsla(0, 67%, 40%, 1) 0%, hsla(0, 67%, 20%, 1) 100%);
+.color.red,
+.red {
+  background-color: hsla(0, 67%, 40%, 1);
+  border: solid 1px hsla(0, 67%, 40%);
 }
-.command.forward.green {
-  background-size: 70%, 100%;
-  background-image: url("img/forward.svg"),
-    linear-gradient(
-      to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%
-    );
+.color.blue,
+.blue {
+  background-color: hsla(210, 67%, 40%, 1);
+  border: solid 1px hsla(210, 67%, 40%);
 }
-.command.forward.blue {
-  background-size: 70%, 100%;
-  background-image: url("img/forward.svg"),
-    linear-gradient(
-      to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%
-    );
-}
-.command.left.red {
-  background-size: 70%, 100%;
-  background-image: url("img/left.svg"),
-    linear-gradient(to top, hsla(0, 67%, 40%, 1) 0%, hsla(0, 67%, 20%, 1) 100%);
-}
-.command.left.green {
-  background-size: 70%, 100%;
-  background-image: url("img/left.svg"),
-    linear-gradient(
-      to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%
-    );
-}
-.command.left.blue {
-  background-size: 70%, 100%;
-  background-image: url("img/left.svg"),
-    linear-gradient(
-      to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%
-    );
-}
-.command.right.red {
-  background-size: 70%, 100%;
-  background-image: url("img/right.svg"),
-    linear-gradient(to top, hsla(0, 67%, 40%, 1) 0%, hsla(0, 67%, 20%, 1) 100%);
-}
-.command.right.green {
-  background-size: 70%, 100%;
-  background-image: url("img/right.svg"),
-    linear-gradient(
-      to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%
-    );
-}
-.command.right.blue {
-  background-size: 70%, 100%;
-  background-image: url("img/right.svg"),
-    linear-gradient(
-      to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%
-    );
-}
-
-.command.f1.red {
-  background-size: 70%, 100%;
-  background-image: url("img/f1.svg"),
-    linear-gradient(to top, hsla(0, 67%, 40%, 1) 0%, hsla(0, 67%, 20%, 1) 100%);
-}
-.command.f1.green {
-  background-size: 70%, 100%;
-  background-image: url("img/f1.svg"),
-    linear-gradient(
-      to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%
-    );
-}
-.command.f1.blue {
-  background-size: 70%, 100%;
-  background-image: url("img/f1.svg"),
-    linear-gradient(
-      to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%
-    );
-}
-
-.command.f1.red {
-  background-size: 70%, 100%;
-  background-image: url("img/f1.svg"),
-    linear-gradient(to top, hsla(0, 67%, 40%, 1) 0%, hsla(0, 67%, 20%, 1) 100%);
-}
-.command.f1.green {
-  background-size: 70%, 100%;
-  background-image: url("img/f1.svg"),
-    linear-gradient(
-      to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%
-    );
-}
-.command.f1.blue {
-  background-size: 70%, 100%;
-  background-image: url("img/f1.svg"),
-    linear-gradient(
-      to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%
-    );
-}
-.command.f2.red {
-  background-size: 70%, 100%;
-  background-image: url("img/f2.svg"),
-    linear-gradient(to top, hsla(0, 67%, 40%, 1) 0%, hsla(0, 67%, 20%, 1) 100%);
-}
-.command.f2.green {
-  background-size: 70%, 100%;
-  background-image: url("img/f2.svg"),
-    linear-gradient(
-      to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%
-    );
-}
-.command.f2.blue {
-  background-size: 70%, 100%;
-  background-image: url("img/f2.svg"),
-    linear-gradient(
-      to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%
-    );
-}
-.command.f3.red {
-  background-size: 70%, 100%;
-  background-image: url("img/f3.svg"),
-    linear-gradient(to top, hsla(0, 67%, 40%, 1) 0%, hsla(0, 67%, 20%, 1) 100%);
-}
-.command.f3.green {
-  background-size: 70%, 100%;
-  background-image: url("img/f3.svg"),
-    linear-gradient(
-      to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%
-    );
-}
-.command.f3.blue {
-  background-size: 70%, 100%;
-  background-image: url("img/f3.svg"),
-    linear-gradient(
-      to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%
-    );
-}
-.command.f4.red {
-  background-size: 70%, 100%;
-  background-image: url("img/f4.svg"),
-    linear-gradient(to top, hsla(0, 67%, 40%, 1) 0%, hsla(0, 67%, 20%, 1) 100%);
-}
-.command.f4.green {
-  background-size: 70%, 100%;
-  background-image: url("img/f4.svg"),
-    linear-gradient(
-      to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%
-    );
-}
-.command.f4.blue {
-  background-size: 70%, 100%;
-  background-image: url("img/f4.svg"),
-    linear-gradient(
-      to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%
-    );
-}
-.command.f5.red {
-  background-size: 70%, 100%;
-  background-image: url("img/f5.svg"),
-    linear-gradient(to top, hsla(0, 67%, 40%, 1) 0%, hsla(0, 67%, 20%, 1) 100%);
-}
-.command.f5.green {
-  background-size: 70%, 100%;
-  background-image: url("img/f5.svg"),
-    linear-gradient(
-      to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%
-    );
-}
-.command.f5.blue {
-  background-size: 70%, 100%;
-  background-image: url("img/f5.svg"),
-    linear-gradient(
-      to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%
-    );
-}
-.command.f6.red {
-  background-size: 70%, 100%;
-  background-image: url("img/f6.svg"),
-    linear-gradient(to top, hsla(0, 67%, 40%, 1) 0%, hsla(0, 67%, 20%, 1) 100%);
-}
-.command.f6.green {
-  background-size: 70%, 100%;
-  background-image: url("img/f6.svg"),
-    linear-gradient(
-      to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%
-    );
-}
-.command.f6.blue {
-  background-size: 70%, 100%;
-  background-image: url("img/f6.svg"),
-    linear-gradient(
-      to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%
-    );
+.color.green,
+.green {
+  background-color: hsla(128, 67%, 40%, 1);
+  border: solid 1px hsla(128, 67%, 40%);
 }
