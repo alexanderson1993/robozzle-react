@@ -47,7 +47,7 @@ const GameBoard = ({ Colors, Items, RobotCol, RobotRow, RobotDir }) => (
       <img
         className="game-ship"
         alt="ship"
-        src="/img/ship.svg"
+        src="img/ship.svg"
         draggable="false"
         style={{
           transform: `rotate(${parseInt(RobotDir, 10) * 90 + 90}deg)`

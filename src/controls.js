@@ -18,7 +18,11 @@ const Commands = ({ SubLengths, dragging, functions, onMouseDown }) => {
         (s, i) =>
           parseInt(s, 10) > 0 && (
             <div className="function-holder">
-              <img src={`/img/f${i + 1}.svg`} alt={`F${i + 1}`} />
+              <img
+                draggable="false"
+                src={`img/f${i + 1}.svg`}
+                alt={`F${i + 1}`}
+              />
               <div className="function-area">
                 {Array(parseInt(s, 10))
                   .fill(0)
