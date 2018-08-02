@@ -20,7 +20,7 @@ const Commands = ({ SubLengths, dragging, functions, onMouseDown }) => {
             <div key={`f${i + 1}`} className="function-holder">
               <img
                 draggable="false"
-                src={`img/f${i + 1}.svg`}
+                src={require(`./img/f${i + 1}.svg`)}
                 alt={`F${i + 1}`}
               />
               <div className="function-area">
