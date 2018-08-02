@@ -1,6 +1,17 @@
 {
-  "main.css": "static/css/main.426c2f8f.css",
-  "main.css.map": "static/css/main.426c2f8f.css.map",
-  "main.js": "static/js/main.64555414.js",
-  "main.js.map": "static/js/main.64555414.js.map"
+  "main.css": "static/css/main.e287e9cb.css",
+  "main.css.map": "static/css/main.e287e9cb.css.map",
+  "main.js": "static/js/main.82f2d0de.js",
+  "main.js.map": "static/js/main.82f2d0de.js.map",
+  "static/media/f1.svg": "static/media/f1.050032d8.svg",
+  "static/media/f2.svg": "static/media/f2.fcffc15d.svg",
+  "static/media/f3.svg": "static/media/f3.23a83fc0.svg",
+  "static/media/f4.svg": "static/media/f4.86b125c6.svg",
+  "static/media/f5.svg": "static/media/f5.ce670926.svg",
+  "static/media/f6.svg": "static/media/f6.70c78c50.svg",
+  "static/media/forward.svg": "static/media/forward.87742d36.svg",
+  "static/media/left.svg": "static/media/left.fd16e487.svg",
+  "static/media/right.svg": "static/media/right.945d4922.svg",
+  "static/media/ship.svg": "static/media/ship.a018236e.svg",
+  "static/media/star.svg": "static/media/star.995ba915.svg"
 }
