@@ -2,7 +2,6 @@ body {
   background-color: black;
   color: white;
   margin: 0;
-  background-image: url(https://picsum.photos/1200/900/?image=893);
   background-size: cover;
 }
 
@@ -45,6 +44,9 @@ body {
   width: 75%;
   max-width: 75vh;
   overflow: hidden;
+  margin-top: 20px;
+  margin-right: 100px;
+  padding-right: 20px;
 }
 
 .gameboard {
