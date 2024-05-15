@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "outDir": "./public",
+    "module": "esnext",
+    "target": "es6",
+    "noImplicitAny": false,
+    "strict": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*"
+  ]
+}
