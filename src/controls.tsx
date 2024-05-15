@@ -7,9 +7,8 @@ const functionClasses = (func, pos, functions) => {
   if (!obj) return "";
   const { command, color } = obj;
   const paint = command && command.indexOf("paint") > -1;
-  return `command ${paint ? "paint" : ""} ${command} ${
-    color ? `${color} color` : ""
-  }`;
+  return `command ${paint ? "paint" : ""} ${command} ${color ? `${color} color` : ""
+    }`;
 };
 const Commands = ({ SubLengths, dragging, functions, onMouseDown }) => {
   return (

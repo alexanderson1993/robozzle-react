@@ -292,19 +292,16 @@ class Game extends Component {
           <div
             className="dragger"
             style={{
-              transform: `translate(${dragging.position.x}px, ${
-                dragging.position.y
-              }px)`
+              transform: `translate(${dragging.position.x}px, ${dragging.position.y
+                }px)`
             }}
           >
             <div
-              className={`command ${
-                dragging.command && dragging.command.indexOf("paint") > -1
+              className={`command ${dragging.command && dragging.command.indexOf("paint") > -1
                   ? "paint"
                   : ""
-              } ${dragging.command} ${
-                dragging.color ? `${dragging.color} color` : ""
-              }`}
+                } ${dragging.command} ${dragging.color ? `${dragging.color} color` : ""
+                }`}
             />
           </div>
         )}
