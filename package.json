@@ -6,13 +6,16 @@
   "homepage": "http://alexanderson1993.github.io/robozzle-react",
   "main": "src/index.js",
   "dependencies": {
-    "react": "16.3.2",
-    "react-dom": "16.3.2",
-    "react-github-fork-ribbon": "^0.5.1",
-    "react-scripts": "1.1.4"
+    "react-dom": "18.3.1",
+    "react-github-fork-ribbon": "^0.7.0"
   },
   "devDependencies": {
-    "gh-pages": "^1.2.0"
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "gh-pages": "^6.1.0",
+    "react": "^18.3.1",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
