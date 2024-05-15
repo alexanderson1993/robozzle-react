@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { DragInfo } from "./baseTypes";
 
 const Red = ({ onMouseDown }) => {
   return (
@@ -30,7 +31,15 @@ const Blue = ({ onMouseDown }) => {
     />
   );
 };
-const ColorCommands = ({ colors, onMouseDown }) => {
+
+
+interface ColorCommandsProps {
+  colors: number,
+  onMouseDown: any,
+}
+
+
+const ColorCommands = ({ colors, onMouseDown }: ColorCommandsProps) => {
   if (colors === 1) {
     return (
       <Fragment>
@@ -90,7 +99,17 @@ const ColorCommands = ({ colors, onMouseDown }) => {
   }
   return null;
 };
-const Commands = ({ SubLengths, AllowedCommands, dragging, onMouseDown }) => {
+
+
+interface CommandsProps {
+  SubLengths: number[],
+  AllowedCommands: number,
+  dragging: DragInfo | null,
+  onMouseDown: any,
+}
+
+
+const Commands = ({ SubLengths, AllowedCommands, dragging, onMouseDown }: CommandsProps) => {
   return (
     <div className={`commands-area ${dragging ? "dragging" : ""}`}>
       <div
@@ -114,7 +133,7 @@ const Commands = ({ SubLengths, AllowedCommands, dragging, onMouseDown }) => {
       <div className="divider" />
       {SubLengths.map(
         (s, i) =>
-          parseInt(s, 10) > 0 && (
+          s > 0 && (
             <div
               key={`sublength-${i}`}
               className={`command f${i + 1}`}
@@ -126,7 +145,7 @@ const Commands = ({ SubLengths, AllowedCommands, dragging, onMouseDown }) => {
       )}
       <div className="divider" />
       <ColorCommands
-        colors={parseInt(AllowedCommands, 10)}
+        colors={AllowedCommands}
         onMouseDown={onMouseDown}
       />
       <div

@@ -1,20 +1,33 @@
 import React from "react";
 import shipImage from './img/ship.svg';
 
-const cellColor = (row, col, Colors) => {
+const cellColor = (row: number, col: number, Colors: string[]): string | null => {
   const color = Colors[row][col];
   if (color === "R") return "red";
   if (color === "B") return "blue";
   if (color === "G") return "green";
+  return null;
 };
-const cellPiece = (row, col, Items) => {
+
+const cellPiece = (row: number, col: number, Items: string[]): string | null => {
   const piece = Items[row][col];
   if (piece === "#") return "transparent";
   if (piece === "*") return "star";
   if (piece === "%") return "star gone";
   if (piece === ".") return "";
+  return null
 };
-const GameBoard = ({ Colors, Items, RobotCol, RobotRow, RobotDir }) => (
+
+
+interface GameBoardProps {
+  Colors: string[],
+  Items: string[],
+  RobotCol: number,
+  RobotRow: number;
+  RobotDir: number,
+}
+
+const GameBoard = ({ Colors, Items, RobotCol, RobotRow, RobotDir }: GameBoardProps) => (
   <div className="gameboard">
     <div className="spacer" />
     <div className="game-grid">
@@ -40,9 +53,7 @@ const GameBoard = ({ Colors, Items, RobotCol, RobotRow, RobotDir }) => (
     <div
       className="game-ship-holder"
       style={{
-        transform: `translate(${(100 / 16) * parseInt(RobotCol, 10)}%, ${(100 /
-          12) *
-          parseInt(RobotRow, 10)}%)`
+        transform: `translate(${(100 / 16) * RobotCol}%, ${(100 / 12) * RobotRow}%)`
       }}
     >
       <img
@@ -51,7 +62,7 @@ const GameBoard = ({ Colors, Items, RobotCol, RobotRow, RobotDir }) => (
         src={shipImage}
         draggable="false"
         style={{
-          transform: `rotate(${parseInt(RobotDir, 10) * 90 + 90}deg)`
+          transform: `rotate(${RobotDir * 90 + 90}deg)`
         }}
       />
     </div>

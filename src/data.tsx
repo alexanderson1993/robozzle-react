@@ -1,4 +1,6 @@
-[
+import { Level } from "./baseTypes";
+
+const Boards: Level[] = [
   {
     "AllowedCommands": 0,
     "Colors": [
@@ -6647,3 +6649,5 @@
     "Title": "Reflection"
   }
 ]
+
+export default Boards;

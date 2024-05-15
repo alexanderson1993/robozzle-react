@@ -1,6 +1,8 @@
 import React from "react";
+import { DragInfo } from "./baseTypes";
 
-const functionClasses = (func, pos, functions) => {
+
+const functionClasses = (func: string, pos: number, functions) => {
   const funcObj = functions[func];
   if (!funcObj) return "";
   const obj = funcObj[pos];
@@ -10,12 +12,22 @@ const functionClasses = (func, pos, functions) => {
   return `command ${paint ? "paint" : ""} ${command} ${color ? `${color} color` : ""
     }`;
 };
-const Commands = ({ SubLengths, dragging, functions, onMouseDown }) => {
+
+
+interface CommandsProps {
+  SubLengths: number[],
+  dragging: DragInfo,
+  functions: any,
+  onMouseDown,
+}
+
+
+const Controls = ({ SubLengths, dragging, functions, onMouseDown }: CommandsProps) => {
   return (
     <div className={`game-controls ${dragging ? "dragging" : ""}`}>
       {SubLengths.map(
         (s, i) =>
-          parseInt(s, 10) > 0 && (
+          s > 0 && (
             <div key={`f${i + 1}`} className="function-holder">
               <img
                 draggable="false"
@@ -23,7 +35,7 @@ const Commands = ({ SubLengths, dragging, functions, onMouseDown }) => {
                 alt={`F${i + 1}`}
               />
               <div className="function-area">
-                {Array(parseInt(s, 10))
+                {Array(s)
                   .fill(0)
                   .map((f, fi) => (
                     <div
@@ -46,4 +58,4 @@ const Commands = ({ SubLengths, dragging, functions, onMouseDown }) => {
   );
 };
 
-export default Commands;
+export default Controls;
