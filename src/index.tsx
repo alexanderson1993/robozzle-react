@@ -1,15 +1,30 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import GitHubForkRibbon from "react-github-fork-ribbon";
-import boards from "./data.json";
+
 import "./styles.css";
+import Boards from "./data";
 import Game from "./game";
 
+
+interface AppState {
+  selectedBoard: number,
+  dragging: boolean,
+}
+
+
 class App extends Component {
-  state = {
-    selectedBoard: "285",
-    dragging: null
-  };
+  state: AppState;
+
+  constructor(props) {
+    super(props);
+    // Initial state
+    this.state = {
+      selectedBoard: 285,
+      dragging: null
+    };
+  }
+
   render() {
     const { dragging, selectedBoard } = this.state;
     return (
@@ -23,7 +38,7 @@ class App extends Component {
           Fork me on GitHub
         </GitHubForkRibbon>
         <div className="boards">
-          {boards.map(d => (
+          {Boards.map(d => (
             <p
               key={`board-${d.Id}`}
               className={`${selectedBoard === d.Id ? "selected" : ""}`}
@@ -37,7 +52,7 @@ class App extends Component {
           <Game
             key={selectedBoard}
             setDragging={which => this.setState({ dragging: which })}
-            board={boards.find(b => b.Id === selectedBoard)}
+            board={Boards.find(b => b.Id === selectedBoard)}
           />
         )}
       </div>

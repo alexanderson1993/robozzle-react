@@ -2,22 +2,45 @@ import React, { Component, Fragment } from "react";
 import GameBoard from "./gameboard";
 import Controls from "./controls";
 import Commands from "./commands";
+import { DragInfo, DragPosition, Level, StackElement } from "./baseTypes";
 
-function replaceAt(string, index, replace) {
+function replaceAt(string: string, index: number, replace: string): string {
   return string.substring(0, index) + replace + string.substring(index + 1);
 }
 
-class Game extends Component {
-  constructor(props) {
+
+interface GameState extends Level {
+  stack: StackElement[],
+  delay: number,
+  clean: boolean,
+
+  dragging: DragInfo | null,
+  functions: any,
+}
+
+interface GameProps {
+  board: Level,
+  setDragging: (isDragging: boolean) => void;
+}
+
+
+class Game extends Component<GameProps, GameState> {
+
+  timeout: NodeJS.Timeout;
+  delay: number | null;
+
+  constructor(props: GameProps) {
     super(props);
     this.state = {
       ...this.props.board,
       functions: {},
       stack: [],
       delay: 100,
-      clean: true
+      clean: true,
+      dragging: null,
     };
   }
+
   reset = () => {
     clearTimeout(this.timeout);
     this.setState(state => ({
@@ -27,6 +50,7 @@ class Game extends Component {
       ...this.props.board
     }));
   };
+
   commandMouseDown = evt => {
     const funcnum = evt.target.dataset.funcnum;
     const index = evt.target.dataset.position;
@@ -42,6 +66,7 @@ class Game extends Component {
         document.addEventListener("mousemove", this.mouseMove);
         document.addEventListener("mouseup", this.mouseUp);
         return {
+          ...state,
           dragging: {
             position,
             command,
@@ -56,10 +81,11 @@ class Game extends Component {
           }
         };
       }
-      return {};
+      return state;
     });
   };
-  mouseDown = (position, command, color) => {
+
+  mouseDown = (position: DragPosition, command: string, color: string) => {
     this.props.setDragging(true);
     this.setState({
       dragging: {
@@ -74,6 +100,7 @@ class Game extends Component {
     document.addEventListener("mousemove", this.mouseMove);
     document.addEventListener("mouseup", this.mouseUp);
   };
+
   mouseMove = evt => {
     this.setState(state => ({
       dragging: {
@@ -85,6 +112,7 @@ class Game extends Component {
       }
     }));
   };
+
   mouseUp = evt => {
     document.removeEventListener("mousemove", this.mouseMove);
     this.props.setDragging(false);
@@ -92,19 +120,21 @@ class Game extends Component {
     const funcNum = evt.target.dataset.funcnum;
     const position = parseInt(evt.target.dataset.position, 10);
     if (!funcNum) return this.setState({ dragging: null });
-    const action = {};
+    let newAction = {}
     this.setState(state => {
-      if (state.dragging.command) action.command = state.dragging.command;
-      if (state.dragging.color) action.color = state.dragging.color;
-      if (state.dragging.color === "clear") action.color = null;
+      if (state.dragging.command) newAction["command"] = state.dragging.command;
+      if (state.dragging.color) newAction["color"] = state.dragging.color;
+      if (state.dragging.color === "clear") newAction["color"] = null;
       const func = state.functions[funcNum] || [];
-      func[position] = { ...func[position], ...action };
+      console.log(position)
+      func[position] = { ...func[position], ...newAction };
       return {
         dragging: null,
         functions: { ...state.functions, [funcNum]: func }
       };
     });
   };
+
   start = () => {
     this.reset();
     clearTimeout(this.timeout);
@@ -115,6 +145,7 @@ class Game extends Component {
     this.setState({ stack, clean: false });
     setTimeout(this.runStack, this.state.delay);
   };
+
   runStack = () => {
     this.setState(state => {
       const { stack, Colors, RobotRow, RobotCol } = state;
@@ -129,7 +160,7 @@ class Game extends Component {
         return { stack };
       }
       const { command, color } = action;
-      const boardColor = Colors[parseInt(RobotRow, 10)][parseInt(RobotCol, 10)];
+      const boardColor = Colors[RobotRow][RobotCol];
 
       if (
         !color ||
@@ -145,42 +176,50 @@ class Game extends Component {
       return { stack };
     });
   };
+
   runNow = () => {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(this.runStack, 0);
   };
+
   performAction = action => {
     this.setState(state => {
       const { Colors, RobotRow, RobotCol, RobotDir, functions, stack } = state;
       switch (action) {
         case "left":
           return {
-            RobotDir: parseInt(RobotDir, 10) - 1
+            ...state,
+            RobotDir: RobotDir - 1
           };
         case "right":
           return {
-            RobotDir: parseInt(RobotDir, 10) + 1
+            ...state,
+            RobotDir: RobotDir + 1
           };
         case "forward":
-          switch (Math.abs(parseInt(RobotDir, 10) + 400) % 4) {
+          switch (Math.abs(RobotDir + 400) % 4) {
             case 0:
               return {
-                RobotCol: Math.max(0, parseInt(RobotCol, 10) + 1)
+                ...state,
+                RobotCol: Math.max(0, RobotCol + 1)
               };
             case 1:
               return {
-                RobotRow: Math.max(0, parseInt(RobotRow, 10) + 1)
+                ...state,
+                RobotRow: Math.max(0, RobotRow + 1)
               };
             case 2:
               return {
-                RobotCol: Math.max(0, parseInt(RobotCol, 10) - 1)
+                ...state,
+                RobotCol: Math.max(0, RobotCol - 1)
               };
             case 3:
               return {
-                RobotRow: Math.max(0, parseInt(RobotRow, 10) - 1)
+                ...state,
+                RobotRow: Math.max(0, RobotRow - 1)
               };
             default:
-              return {};
+              return state;
           }
         case "f1":
         case "f2":
@@ -190,6 +229,7 @@ class Game extends Component {
         case "f6":
           this.runNow();
           return {
+            ...state,
             stack: functions[action].concat(stack)
           };
         case "paint-red":
@@ -200,18 +240,20 @@ class Game extends Component {
           if (color === "green") color = "G";
           if (color === "blue") color = "B";
           return {
+            ...state,
             Colors: Colors.map((row, i) => {
-              if (i === parseInt(RobotRow, 10)) {
-                return replaceAt(row, parseInt(RobotCol, 10), color);
+              if (i === RobotRow) {
+                return replaceAt(row, RobotCol, color);
               }
               return row;
             })
           };
         default:
-          return;
+          return state;
       }
     }, this.checkGame);
   };
+
   checkGame = () => {
     const { Items, RobotCol, RobotRow } = this.state;
     if (Items[RobotRow][RobotCol] === "#") {
@@ -221,8 +263,8 @@ class Game extends Component {
       return this.setState(
         state => ({
           Items: state.Items.map((row, i) => {
-            if (i === parseInt(RobotRow, 10)) {
-              return replaceAt(row, parseInt(RobotCol, 10), "%");
+            if (i === RobotRow) {
+              return replaceAt(row, RobotCol, "%");
             }
             return row;
           })
@@ -242,6 +284,7 @@ class Game extends Component {
       }, this.state.delay);
     }
   };
+
   render() {
     const { dragging, functions, delay } = this.state;
     return (
@@ -292,19 +335,16 @@ class Game extends Component {
           <div
             className="dragger"
             style={{
-              transform: `translate(${dragging.position.x}px, ${
-                dragging.position.y
-              }px)`
+              transform: `translate(${dragging.position.x}px, ${dragging.position.y
+                }px)`
             }}
           >
             <div
-              className={`command ${
-                dragging.command && dragging.command.indexOf("paint") > -1
+              className={`command ${dragging.command && dragging.command.indexOf("paint") > -1
                   ? "paint"
                   : ""
-              } ${dragging.command} ${
-                dragging.color ? `${dragging.color} color` : ""
-              }`}
+                } ${dragging.command} ${dragging.color ? `${dragging.color} color` : ""
+                }`}
             />
           </div>
         )}
@@ -312,4 +352,5 @@ class Game extends Component {
     );
   }
 }
+
 export default Game;
