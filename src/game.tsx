@@ -9,9 +9,13 @@ function replaceAt(string: string, index: number, replace: string): string {
 }
 
 
+// Step speed is a scale from 1-10, where 10 is the fastest (almost instant)
+const INTIAL_STEP_SPEED = 8;
+
+
 interface GameState extends Level {
   stack: StackElement[],
-  delay: number,
+  stepDelay: number,
   clean: boolean,
 
   dragging: DragInfo | null,
@@ -27,7 +31,6 @@ interface GameProps {
 class Game extends Component<GameProps, GameState> {
 
   timeout: NodeJS.Timeout;
-  delay: number | null;
 
   constructor(props: GameProps) {
     super(props);
@@ -35,10 +38,14 @@ class Game extends Component<GameProps, GameState> {
       ...this.props.board,
       functions: {},
       stack: [],
-      delay: 100,
+      stepDelay: this.calculateStepDelay(INTIAL_STEP_SPEED),
       clean: true,
       dragging: null,
     };
+  }
+
+  calculateStepDelay = (stepSpeed: number) => {
+    return 1000 - (((stepSpeed) * 100) - 20);
   }
 
   reset = () => {
@@ -143,7 +150,7 @@ class Game extends Component<GameProps, GameState> {
     const starting = functions.f1;
     const stack = [].concat(starting);
     this.setState({ stack, clean: false });
-    setTimeout(this.runStack, this.state.delay);
+    setTimeout(this.runStack, this.state.stepDelay);
   };
 
   runStack = () => {
@@ -169,7 +176,7 @@ class Game extends Component<GameProps, GameState> {
         (color === "blue" && boardColor === "B")
       ) {
         this.performAction(command);
-        this.timeout = setTimeout(this.runStack, this.state.delay);
+        this.timeout = setTimeout(this.runStack, this.state.stepDelay);
       } else {
         this.runNow();
       }
@@ -257,7 +264,7 @@ class Game extends Component<GameProps, GameState> {
   checkGame = () => {
     const { Items, RobotCol, RobotRow } = this.state;
     if (Items[RobotRow][RobotCol] === "#") {
-      return setTimeout(this.reset, this.delay * 4);
+      return setTimeout(this.reset, this.state.stepDelay * 4);
     }
     if (Items[RobotRow][RobotCol] === "*") {
       return this.setState(
@@ -280,18 +287,18 @@ class Game extends Component<GameProps, GameState> {
     if (stars === 0) {
       clearTimeout(this.timeout);
       setTimeout(() => {
-        window.alert("You win!");
-      }, this.state.delay);
+        window.alert(`You beat ${this.state.Title}!`);
+      }, this.state.stepDelay);
     }
   };
 
   render() {
-    const { dragging, functions, delay } = this.state;
+    const { dragging, functions, stepDelay } = this.state;
     return (
       <Fragment>
         <style>
           {`.gameboard {
---delay:${delay}ms
+--delay:${stepDelay}ms
 }`}
         </style>
         <div className="gameboard-holder">
@@ -317,17 +324,23 @@ class Game extends Component<GameProps, GameState> {
                   Reset
                 </button>
               </div>
-              <input
-                type="range"
-                min="20"
-                max="2000"
-                defaultValue={this.state.delay}
-                onChange={evt => {
-                  this.setState({
-                    delay: parseInt(evt.target.value, 10)
-                  });
-                }}
-              />
+              <div className="slider-container">
+                <label htmlFor="speed">Slow</label>
+                <input
+                  className="speed-slider"
+                  id="seed"
+                  type="range"
+                  min="1"
+                  max="10"
+                  defaultValue={INTIAL_STEP_SPEED}
+                  onChange={evt => {
+                    this.setState({
+                      stepDelay: this.calculateStepDelay(parseInt(evt.target.value, 10)),
+                    });
+                  }}
+                />
+                <label htmlFor="speed">Fast</label>
+              </div>
             </div>
           </Fragment>
         </div>
@@ -341,8 +354,8 @@ class Game extends Component<GameProps, GameState> {
           >
             <div
               className={`command ${dragging.command && dragging.command.indexOf("paint") > -1
-                  ? "paint"
-                  : ""
+                ? "paint"
+                : ""
                 } ${dragging.command} ${dragging.color ? `${dragging.color} color` : ""
                 }`}
             />

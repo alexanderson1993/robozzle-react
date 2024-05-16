@@ -44,8 +44,8 @@ body {
   width: 75%;
   max-width: 75vh;
   overflow: hidden;
-  margin-top: 20px;
-  margin-right: 100px;
+  margin: 20px;
+  margin-right: 80px;
   padding-right: 20px;
 }
 
@@ -257,6 +257,21 @@ body {
 .command.f6 {
   background-image: url("./img/f6.svg"),
     linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
+}
+
+.slider-container {
+  margin: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slider-container label {
+  margin: 0 10px;
+}
+
+.speed-slider {
+  width: 80%;
 }
 
 .color.clear {
