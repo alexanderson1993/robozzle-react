@@ -12,7 +12,7 @@ export interface Level {
   CommentCount?: number,
   DifficultyVoteCount?: number,
   DifficultyVoteSum?: number,
-  Solutions: number,
+  Solutions?: number,
   Liked?: number,
   Disliked?: number,
   Featured?: boolean,
