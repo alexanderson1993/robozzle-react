@@ -20,9 +20,15 @@ class App extends Component {
     super(props);
     // Initial state
     this.state = {
-      selectedBoard: 285,
+      selectedBoard: this.getSelectedBoardFromUrl() || 285,
       dragging: null
     };
+  }
+
+  getSelectedBoardFromUrl(): number | null {
+    const searchParams = new URLSearchParams(window.location.search);
+    const level = parseInt(searchParams.get('level'), 10);
+    return isNaN(level) ? null : level;  // Ensure that the level is a number
   }
 
   render() {
@@ -42,7 +48,12 @@ class App extends Component {
             <p
               key={`board-${d.Id}`}
               className={`${selectedBoard === d.Id ? "selected" : ""}`}
-              onClick={() => this.setState({ selectedBoard: d.Id })}
+              onClick={() => {
+                this.setState({ selectedBoard: d.Id })
+                const url = new URL(window.location.href);
+                url.searchParams.set("level", `${d.Id}`);
+                window.history.pushState({ path: url.toString() }, '', url.toString());
+              }}
             >
               {d.Title}
             </p>
