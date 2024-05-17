@@ -1,17 +1,24 @@
 {
-  "main.css": "static/css/main.e287e9cb.css",
-  "main.css.map": "static/css/main.e287e9cb.css.map",
-  "main.js": "static/js/main.d8acb4c2.js",
-  "main.js.map": "static/js/main.d8acb4c2.js.map",
-  "static/media/f1.svg": "static/media/f1.050032d8.svg",
-  "static/media/f2.svg": "static/media/f2.fcffc15d.svg",
-  "static/media/f3.svg": "static/media/f3.23a83fc0.svg",
-  "static/media/f4.svg": "static/media/f4.86b125c6.svg",
-  "static/media/f5.svg": "static/media/f5.ce670926.svg",
-  "static/media/f6.svg": "static/media/f6.70c78c50.svg",
-  "static/media/forward.svg": "static/media/forward.87742d36.svg",
-  "static/media/left.svg": "static/media/left.fd16e487.svg",
-  "static/media/right.svg": "static/media/right.945d4922.svg",
-  "static/media/ship.svg": "static/media/ship.a018236e.svg",
-  "static/media/star.svg": "static/media/star.995ba915.svg"
+  "files": {
+    "main.css": "/robozzle-react/static/css/main.2bb67906.css",
+    "main.js": "/robozzle-react/static/js/main.074b0c5f.js",
+    "static/media/ship.svg": "/robozzle-react/static/media/ship.91224f80c163d11517f1ad3293557d8b.svg",
+    "static/media/f3.svg": "/robozzle-react/static/media/f3.a394fda28ef6640655ec.svg",
+    "static/media/f6.svg": "/robozzle-react/static/media/f6.418e0bbace95f83fa9ce.svg",
+    "static/media/f5.svg": "/robozzle-react/static/media/f5.eb98d464f295c8588187.svg",
+    "static/media/f2.svg": "/robozzle-react/static/media/f2.44128c2623e43492ac2a.svg",
+    "static/media/star.svg": "/robozzle-react/static/media/star.452eab406c29df207139.svg",
+    "static/media/right.svg": "/robozzle-react/static/media/right.4f1d44bb1b0dd66e22a9.svg",
+    "static/media/left.svg": "/robozzle-react/static/media/left.1bc416775b1ce5b484d1.svg",
+    "static/media/forward.svg": "/robozzle-react/static/media/forward.248b7f753c72930bc06c.svg",
+    "static/media/f4.svg": "/robozzle-react/static/media/f4.029274566cdb0848df65.svg",
+    "static/media/f1.svg": "/robozzle-react/static/media/f1.e63357ea000cb3917bba.svg",
+    "index.html": "/robozzle-react/index.html",
+    "main.2bb67906.css.map": "/robozzle-react/static/css/main.2bb67906.css.map",
+    "main.074b0c5f.js.map": "/robozzle-react/static/js/main.074b0c5f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2bb67906.css",
+    "static/js/main.074b0c5f.js"
+  ]
 }
