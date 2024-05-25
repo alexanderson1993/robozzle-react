@@ -26,6 +26,7 @@ interface GameState extends Level {
 interface GameProps {
   board: Level,
   setDragging: (isDragging: boolean) => void;
+  onLevelComplete: () => void;
 }
 
 
@@ -307,7 +308,9 @@ class Game extends Component<GameProps, GameState> {
       clearTimeout(this.timeout);
       setTimeout(() => {
         window.alert(`You beat ${this.state.Title}!`);
+        this.props.onLevelComplete();
       }, this.state.stepDelay);
+
     }
   };
 
