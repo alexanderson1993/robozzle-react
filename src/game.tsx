@@ -61,9 +61,11 @@ class Game extends Component<GameProps, GameState> {
     }));
   };
 
-  commandMouseDown = evt => {
-    const funcnum: string = evt.target.dataset.funcnum;
-    const index: number = parseInt(evt.target.dataset.position, 10);
+  commandMouseDown = (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const target = evt.target as HTMLElement;
+    const funcnum: string = target.dataset.funcnum;
+    const index: number = parseInt(target.dataset.position, 10);
+
     const position = {
       x: evt.clientX - 15,
       y: evt.clientY - 15
@@ -111,7 +113,7 @@ class Game extends Component<GameProps, GameState> {
     document.addEventListener("mouseup", this.mouseUp);
   };
 
-  mouseMove = evt => {
+  mouseMove = (evt: MouseEvent) => {
     this.setState(state => ({
       dragging: {
         ...state.dragging,
@@ -123,12 +125,15 @@ class Game extends Component<GameProps, GameState> {
     }));
   };
 
-  mouseUp = evt => {
+  mouseUp = (evt: MouseEvent) => {
     document.removeEventListener("mousemove", this.mouseMove);
     this.props.setDragging(false);
     document.removeEventListener("mouseup", this.mouseUp);
-    const funcKey: string = evt.target.dataset.funcnum;
-    const position = parseInt(evt.target.dataset.position, 10);
+
+    const target = evt.target as HTMLElement;
+    const funcKey: string = target.dataset.funcnum;
+    const position = parseInt(target.dataset.position, 10);
+
     if (!funcKey) return this.setState({ dragging: null });
     let newAction = { function: funcKey, index: position }
     this.setState(state => {
@@ -197,7 +202,7 @@ class Game extends Component<GameProps, GameState> {
     this.timeout = setTimeout(this.runStack, 0);
   };
 
-  performAction = action => {
+  performAction = (action: string) => {
     this.setState(state => {
       const { Colors, RobotRow, RobotCol, RobotDir, functions, stack } = state;
       switch (action) {
