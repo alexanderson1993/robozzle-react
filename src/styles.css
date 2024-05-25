@@ -31,7 +31,7 @@ body {
 
 .boards p {
   border-radius: 10px;
-  padding: 3px;
+  padding: 2px;
   margin: 1px;
 }
 
@@ -42,7 +42,7 @@ body {
 
 .gameboard-holder {
   width: 75%;
-  max-width: 75vh;
+  max-width: 85vh;
   overflow: hidden;
   margin: 20px;
   margin-right: 80px;
@@ -53,6 +53,7 @@ body {
   width: 100%;
   border: solid 1px white;
   position: relative;
+  overflow: hidden;
 }
 
 .game-grid {
@@ -340,4 +341,9 @@ body {
 .green {
   background-color: hsla(128, 67%, 40%, 1);
   border: solid 1px hsla(128, 67%, 40%);
+}
+
+.command.highlight {
+  border-color: yellow;
+  border-width: 1px;
 }

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import GameBoard from "./gameboard";
 import Controls from "./controls";
 import Commands from "./commands";
-import { DragInfo, DragPosition, Level, StackElement } from "./baseTypes";
+import { CurrentInstruction, DragInfo, DragPosition, FunctionCommands, Level, StackElement } from "./baseTypes";
 
 function replaceAt(string: string, index: number, replace: string): string {
   return string.substring(0, index) + replace + string.substring(index + 1);
@@ -19,12 +19,14 @@ interface GameState extends Level {
   clean: boolean,
 
   dragging: DragInfo | null,
-  functions: any,
+  functions: FunctionCommands,
+  currentInstruction: CurrentInstruction | null,
 }
 
 interface GameProps {
   board: Level,
   setDragging: (isDragging: boolean) => void;
+  onLevelComplete: () => void;
 }
 
 
@@ -41,6 +43,7 @@ class Game extends Component<GameProps, GameState> {
       stepDelay: this.calculateStepDelay(INTIAL_STEP_SPEED),
       clean: true,
       dragging: null,
+      currentInstruction: null,
     };
   }
 
@@ -51,16 +54,19 @@ class Game extends Component<GameProps, GameState> {
   reset = () => {
     clearTimeout(this.timeout);
     this.setState(state => ({
+      ...this.props.board,
       clean: true,
       functions: state.functions,
       stack: [],
-      ...this.props.board
+      currentInstruction: null,
     }));
   };
 
-  commandMouseDown = evt => {
-    const funcnum = evt.target.dataset.funcnum;
-    const index = evt.target.dataset.position;
+  commandMouseDown = (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const target = evt.target as HTMLElement;
+    const funcnum: string = target.dataset.funcnum;
+    const index: number = parseInt(target.dataset.position, 10);
+
     const position = {
       x: evt.clientX - 15,
       y: evt.clientY - 15
@@ -82,7 +88,7 @@ class Game extends Component<GameProps, GameState> {
           functions: {
             ...state.functions,
             [funcnum]: state.functions[funcnum].map((f, i) => {
-              if (i === parseInt(index, 10)) return null;
+              if (i === index) return null;
               return f;
             })
           }
@@ -108,7 +114,7 @@ class Game extends Component<GameProps, GameState> {
     document.addEventListener("mouseup", this.mouseUp);
   };
 
-  mouseMove = evt => {
+  mouseMove = (evt: MouseEvent) => {
     this.setState(state => ({
       dragging: {
         ...state.dragging,
@@ -120,24 +126,27 @@ class Game extends Component<GameProps, GameState> {
     }));
   };
 
-  mouseUp = evt => {
+  mouseUp = (evt: MouseEvent) => {
     document.removeEventListener("mousemove", this.mouseMove);
     this.props.setDragging(false);
     document.removeEventListener("mouseup", this.mouseUp);
-    const funcNum = evt.target.dataset.funcnum;
-    const position = parseInt(evt.target.dataset.position, 10);
-    if (!funcNum) return this.setState({ dragging: null });
-    let newAction = {}
+
+    const target = evt.target as HTMLElement;
+    const funcKey: string = target.dataset.funcnum;
+    const position = parseInt(target.dataset.position, 10);
+
+    if (!funcKey) return this.setState({ dragging: null });
+    let newAction = { function: funcKey, index: position }
     this.setState(state => {
       if (state.dragging.command) newAction["command"] = state.dragging.command;
       if (state.dragging.color) newAction["color"] = state.dragging.color;
       if (state.dragging.color === "clear") newAction["color"] = null;
-      const func = state.functions[funcNum] || [];
-      console.log(position)
+      const func = state.functions[funcKey] || [];
+      console.log(newAction)
       func[position] = { ...func[position], ...newAction };
       return {
         dragging: null,
-        functions: { ...state.functions, [funcNum]: func }
+        functions: { ...state.functions, [funcKey]: func }
       };
     });
   };
@@ -148,8 +157,8 @@ class Game extends Component<GameProps, GameState> {
     // Start with F1
     const { functions } = this.state;
     const starting = functions.f1;
-    const stack = [].concat(starting);
-    this.setState({ stack, clean: false });
+    const stack: StackElement[] = [].concat(starting);
+    this.setState({ stack, clean: false, currentInstruction: { function: "f1", index: 0 } });
     setTimeout(this.runStack, this.state.stepDelay);
   };
 
@@ -164,10 +173,13 @@ class Game extends Component<GameProps, GameState> {
       const action = stack.shift();
       if (!action) {
         this.runNow();
-        return { stack };
+        return { stack, currentInstruction: null };
       }
-      const { command, color } = action;
-      const boardColor = Colors[RobotRow][RobotCol];
+      const { command, color, index } = action;
+      let boardColor = "#";
+      if (RobotRow in Colors && 0 <= RobotCol && RobotCol < Colors[RobotRow].length) {
+        boardColor = Colors[RobotRow][RobotCol];
+      }
 
       if (
         !color ||
@@ -177,10 +189,12 @@ class Game extends Component<GameProps, GameState> {
       ) {
         this.performAction(command);
         this.timeout = setTimeout(this.runStack, this.state.stepDelay);
+        return { stack, currentInstruction: { function: action.function, index: index } };
       } else {
         this.runNow();
+        return { stack, currentInstruction: null };
       }
-      return { stack };
+
     });
   };
 
@@ -189,7 +203,7 @@ class Game extends Component<GameProps, GameState> {
     this.timeout = setTimeout(this.runStack, 0);
   };
 
-  performAction = action => {
+  performAction = (action: string) => {
     this.setState(state => {
       const { Colors, RobotRow, RobotCol, RobotDir, functions, stack } = state;
       switch (action) {
@@ -208,22 +222,22 @@ class Game extends Component<GameProps, GameState> {
             case 0:
               return {
                 ...state,
-                RobotCol: Math.max(0, RobotCol + 1)
+                RobotCol: RobotCol + 1,
               };
             case 1:
               return {
                 ...state,
-                RobotRow: Math.max(0, RobotRow + 1)
+                RobotRow: RobotRow + 1,
               };
             case 2:
               return {
                 ...state,
-                RobotCol: Math.max(0, RobotCol - 1)
+                RobotCol: RobotCol - 1,
               };
             case 3:
               return {
                 ...state,
-                RobotRow: Math.max(0, RobotRow - 1)
+                RobotRow: RobotRow - 1,
               };
             default:
               return state;
@@ -263,8 +277,14 @@ class Game extends Component<GameProps, GameState> {
 
   checkGame = () => {
     const { Items, RobotCol, RobotRow } = this.state;
+    if (!(RobotRow in Items) || RobotCol < 0 || Items[RobotRow].length <= RobotCol) {
+      // Robot fell off board
+      return setTimeout(this.reset, this.state.stepDelay);
+    }
+
     if (Items[RobotRow][RobotCol] === "#") {
-      return setTimeout(this.reset, this.state.stepDelay * 4);
+      // Robot went off path
+      return setTimeout(this.reset, this.state.stepDelay);
     }
     if (Items[RobotRow][RobotCol] === "*") {
       return this.setState(
@@ -288,7 +308,9 @@ class Game extends Component<GameProps, GameState> {
       clearTimeout(this.timeout);
       setTimeout(() => {
         window.alert(`You beat ${this.state.Title}!`);
+        this.props.onLevelComplete();
       }, this.state.stepDelay);
+
     }
   };
 

@@ -10,18 +10,21 @@ import Game from "./game";
 interface AppState {
   selectedBoard: number,
   dragging: boolean,
+  completedLevels: Set<number>,
 }
 
 
-class App extends Component {
+class App extends Component<{}, AppState> {
   state: AppState;
 
   constructor(props) {
     super(props);
     // Initial state
+    const completedLevels = new Set<number>(JSON.parse(localStorage.getItem('completedLevels') || '[]'));
     this.state = {
       selectedBoard: this.getSelectedBoardFromUrl() || 285,
-      dragging: null
+      dragging: null,
+      completedLevels: completedLevels,
     };
   }
 
@@ -31,8 +34,18 @@ class App extends Component {
     return isNaN(level) ? null : level;  // Ensure that the level is a number
   }
 
+  handleLevelComplete = (levelId: number) => {
+    this.setState((prevState) => {
+      const updatedCompletedLevels = new Set(prevState.completedLevels).add(levelId);
+      localStorage.setItem('completedLevels', JSON.stringify(Array.from(updatedCompletedLevels)));
+      return {
+        completedLevels: updatedCompletedLevels
+      };
+    });
+  };
+
   render() {
-    const { dragging, selectedBoard } = this.state;
+    const { dragging, selectedBoard, completedLevels } = this.state;
     return (
       <div className={`App ${dragging ? "dragging" : ""}`}>
         <GitHubForkRibbon
@@ -55,7 +68,7 @@ class App extends Component {
                 window.history.pushState({ path: url.toString() }, '', url.toString());
               }}
             >
-              {d.Title}
+              {completedLevels.has(d.Id) ? `✅ ${d.Title}` : `⬜ ${d.Title}`}
             </p>
           ))}
         </div>
@@ -64,6 +77,7 @@ class App extends Component {
             key={selectedBoard}
             setDragging={which => this.setState({ dragging: which })}
             board={Boards.find(b => b.Id === selectedBoard)}
+            onLevelComplete={() => this.handleLevelComplete(selectedBoard)}
           />
         )}
       </div>

@@ -23,8 +23,19 @@ export interface Level {
 
 
 export interface StackElement {
-  command: number,
+  command: string,
   color: string,
+  function: string,
+  index: number,
+}
+
+export interface CurrentInstruction {
+  function: string,
+  index: number,
+}
+
+export interface FunctionCommands {
+  [key: string]: StackElement[];
 }
 
 
