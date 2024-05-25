@@ -42,7 +42,7 @@ body {
 
 .gameboard-holder {
   width: 75%;
-  max-width: 75vh;
+  max-width: 85vh;
   overflow: hidden;
   margin: 20px;
   margin-right: 80px;
