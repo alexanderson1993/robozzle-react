@@ -53,6 +53,7 @@ body {
   width: 100%;
   border: solid 1px white;
   position: relative;
+  overflow: hidden;
 }
 
 .game-grid {

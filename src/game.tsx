@@ -167,7 +167,10 @@ class Game extends Component<GameProps, GameState> {
         return { stack };
       }
       const { command, color } = action;
-      const boardColor = Colors[RobotRow][RobotCol];
+      let boardColor = "#";
+      if (RobotRow in Colors && 0 <= RobotCol && RobotCol < Colors[RobotRow].length) {
+        boardColor = Colors[RobotRow][RobotCol];
+      }
 
       if (
         !color ||
@@ -208,22 +211,22 @@ class Game extends Component<GameProps, GameState> {
             case 0:
               return {
                 ...state,
-                RobotCol: Math.max(0, RobotCol + 1)
+                RobotCol: RobotCol + 1,
               };
             case 1:
               return {
                 ...state,
-                RobotRow: Math.max(0, RobotRow + 1)
+                RobotRow: RobotRow + 1,
               };
             case 2:
               return {
                 ...state,
-                RobotCol: Math.max(0, RobotCol - 1)
+                RobotCol: RobotCol - 1,
               };
             case 3:
               return {
                 ...state,
-                RobotRow: Math.max(0, RobotRow - 1)
+                RobotRow: RobotRow - 1,
               };
             default:
               return state;
@@ -263,7 +266,13 @@ class Game extends Component<GameProps, GameState> {
 
   checkGame = () => {
     const { Items, RobotCol, RobotRow } = this.state;
+    if (!(RobotRow in Items) || RobotCol < 0 || Items[RobotRow].length <= RobotCol) {
+      // Robot fell off board
+      return setTimeout(this.reset, this.state.stepDelay * 4);
+    }
+
     if (Items[RobotRow][RobotCol] === "#") {
+      // Robot went off path
       return setTimeout(this.reset, this.state.stepDelay * 4);
     }
     if (Items[RobotRow][RobotCol] === "*") {
