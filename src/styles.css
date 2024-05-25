@@ -342,3 +342,8 @@ body {
   background-color: hsla(128, 67%, 40%, 1);
   border: solid 1px hsla(128, 67%, 40%);
 }
+
+.command.highlight {
+  border-color: yellow;
+  border-width: 1px;
+}
