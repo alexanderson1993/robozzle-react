@@ -133,7 +133,6 @@ class Game extends Component<GameProps, GameState> {
       if (state.dragging.color) newAction["color"] = state.dragging.color;
       if (state.dragging.color === "clear") newAction["color"] = null;
       const func = state.functions[funcNum] || [];
-      console.log(position)
       func[position] = { ...func[position], ...newAction };
       return {
         dragging: null,
@@ -268,12 +267,12 @@ class Game extends Component<GameProps, GameState> {
     const { Items, RobotCol, RobotRow } = this.state;
     if (!(RobotRow in Items) || RobotCol < 0 || Items[RobotRow].length <= RobotCol) {
       // Robot fell off board
-      return setTimeout(this.reset, this.state.stepDelay * 4);
+      return setTimeout(this.reset, this.state.stepDelay);
     }
 
     if (Items[RobotRow][RobotCol] === "#") {
       // Robot went off path
-      return setTimeout(this.reset, this.state.stepDelay * 4);
+      return setTimeout(this.reset, this.state.stepDelay);
     }
     if (Items[RobotRow][RobotCol] === "*") {
       return this.setState(
