@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/robozzle-react/static/css/main.2bb67906.css",
-    "main.js": "/robozzle-react/static/js/main.074b0c5f.js",
+    "main.css": "/robozzle-react/static/css/main.633d12a8.css",
+    "main.js": "/robozzle-react/static/js/main.a6fdc770.js",
     "static/media/ship.svg": "/robozzle-react/static/media/ship.91224f80c163d11517f1ad3293557d8b.svg",
     "static/media/f3.svg": "/robozzle-react/static/media/f3.a394fda28ef6640655ec.svg",
     "static/media/f6.svg": "/robozzle-react/static/media/f6.418e0bbace95f83fa9ce.svg",
@@ -14,11 +14,11 @@
     "static/media/f4.svg": "/robozzle-react/static/media/f4.029274566cdb0848df65.svg",
     "static/media/f1.svg": "/robozzle-react/static/media/f1.e63357ea000cb3917bba.svg",
     "index.html": "/robozzle-react/index.html",
-    "main.2bb67906.css.map": "/robozzle-react/static/css/main.2bb67906.css.map",
-    "main.074b0c5f.js.map": "/robozzle-react/static/js/main.074b0c5f.js.map"
+    "main.633d12a8.css.map": "/robozzle-react/static/css/main.633d12a8.css.map",
+    "main.a6fdc770.js.map": "/robozzle-react/static/js/main.a6fdc770.js.map"
   },
   "entrypoints": [
-    "static/css/main.2bb67906.css",
-    "static/js/main.074b0c5f.js"
+    "static/css/main.633d12a8.css",
+    "static/js/main.a6fdc770.js"
   ]
 }
