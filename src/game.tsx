@@ -251,7 +251,8 @@ class Game extends Component<GameProps, GameState> {
           this.runNow();
           return {
             ...state,
-            stack: functions[action].concat(stack)
+            stack: functions[action].concat(stack),
+            currentInstruction: null,
           };
         case "paint-red":
         case "paint-green":
