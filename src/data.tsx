@@ -620,48 +620,48 @@ const Boards: Level[] = [
   {
     "AllowedCommands": 0,
     "Colors": [
-      "BRBRBRBRBRBRBRRB",
-      "RBRBRBRBRBRBRRRR",
-      "BRBRBRBRBRBRRRRB",
-      "RBRBRBRBRBRRRRBR",
-      "BRBRBRBRBRRRRBRB",
-      "RBRBRBRBRRRRBRBR",
-      "BRBRBRBRRRRBRBRB",
-      "RBRBRBRRRRBRBRBR",
-      "BRBRBRRRRBRBRBRB",
-      "RBRBRRRRBRBRBRBR",
-      "BRBRRRRBRBRBRBRB",
-      "RBRBRRBRBRBRBRBR",
+      "RRRRRRRRRRRRRRRR",
+      "RRRRRRRRRRRRBBRR",
+      "RRRRRRRRRRRBBRRR",
+      "RRRRRRRRRRBBRRRR",
+      "RRRRRRRRRBBRRRRR",
+      "RRRRRRRRBBRRRRRR",
+      "RRRRRRRBBRRRRRRR",
+      "RRRRRRBBRRRRRRRR",
+      "RRRRRBBRRRRRRRRR",
+      "RRRRBBRRRRRRRRRR",
+      "RRRBBRRRRRRRRRRR",
+      "RRRRRRRRRRRRRRRR"
     ],
-    "CommentCount": 0,
-    "DifficultyVoteCount": 20,
-    "DifficultyVoteSum": 23,
-    "Disliked": 4,
-    "Featured": false,
-    "Id": 15119,
+    "CommentCount": 15075,
+    "DifficultyVoteCount": 6218,
+    "DifficultyVoteSum": 8662,
+    "Disliked": 548,
+    "Featured": true,
+    "Id": 27,
     "Items": [
-      ".#.#.#.#.#.#.##.",
-      "#.#.#.#.#.#.#.*#",
-      ".#.#.#.#.#.#..#.",
-      "#.#.#.#.#.#..#.#",
-      ".#.#.#.#.#..#.#.",
-      "#.#.#.#.#..#.#.#",
-      ".#.#.#.#..#.#.#.",
-      "#.#.#.#..#.#.#.#",
-      ".#.#.#..#.#.#.#.",
-      "#.#.#..#.#.#.#.#",
-      ".#.#..#.#.#.#.#.",
-      "#.#..#.#.#.#.#.#",
+      "################",
+      "############**##",
+      "###########**###",
+      "##########**####",
+      "#########**#####",
+      "########**######",
+      "#######**#######",
+      "######**########",
+      "#####**#########",
+      "####**##########",
+      "###.*###########",
+      "################"
     ],
-    "Liked": 33,
+    "Liked": 6079,
     "RobotCol": 3,
     "RobotDir": 0,
-    "RobotRow": 11,
-    "Solutions": 401,
-    "SubLengths": [5, 0, 0, 0, 0],
-    "SubmittedBy": "Idunn0",
-    "SubmittedDate": "2023-05-30T12:13:58.71",
-    "Title": "Stairs with a pattern",
+    "RobotRow": 10,
+    "Solutions": 132114,
+    "SubLengths": [10, 0, 0, 0, 0],
+    "SubmittedBy": { "-i:nil": "true" },
+    "SubmittedDate": "2008-12-15T04:03:43",
+    "Title": "Stairs"
   },
   {
     "AllowedCommands": 0,
@@ -707,7 +707,7 @@ const Boards: Level[] = [
     "SubLengths": [6, 0, 0, 0, 0],
     "SubmittedBy": "Fantastic_Four",
     "SubmittedDate": "2021-10-03T21:57:54.393",
-    "Title": "Stairs",
+    "Title": "Elongated Stairs",
   },
   {
     "AllowedCommands": 0,
@@ -753,7 +753,7 @@ const Boards: Level[] = [
     "SubLengths": [8, 0, 0, 0, 0],
     "SubmittedBy": "Group1ENGR101",
     "SubmittedDate": "2021-09-23T12:00:18.237",
-    "Title": "Iteration",
+    "Title": "Compressed Stairs",
   },
   {
     "AllowedCommands": 0,
@@ -799,7 +799,7 @@ const Boards: Level[] = [
     "SubLengths": [3, 5, 0, 0, 0],
     "SubmittedBy": "4pmgroup5",
     "SubmittedDate": "2021-10-05T20:38:12.787",
-    "Title": "ENGR101:  Selection",
+    "Title": "Up and Down Stairs",
   },
   {
     "AllowedCommands": 0,
@@ -845,7 +845,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 2, 0, 0, 0],
     "SubmittedBy": "Idunn0",
     "SubmittedDate": "2023-05-18T18:34:31.517",
-    "Title": "10x10 square",
+    "Title": "10x10 Square",
   },
   {
     "AllowedCommands": 7,
@@ -891,7 +891,7 @@ const Boards: Level[] = [
     "SubLengths": [8, 0, 0, 0, 0],
     "SubmittedBy": "Buzzle",
     "SubmittedDate": "2022-02-17T00:51:43.97",
-    "Title": "U",
+    "Title": "Wiggly Wobbly",
   },
   {
     "AllowedCommands": 0,
@@ -983,7 +983,7 @@ const Boards: Level[] = [
     "SubLengths": [2, 2, 0, 0, 0],
     "SubmittedBy": "SKEBS",
     "SubmittedDate": "2020-10-09T18:57:31.713",
-    "Title": "Selection and Function Calls",
+    "Title": "Every Single One",
   },
   {
     "AllowedCommands": 0,
@@ -1029,7 +1029,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 0, 0, 0, 0],
     "SubmittedBy": "Idunn0",
     "SubmittedDate": "2023-05-31T12:56:16.093",
-    "Title": "...?",
+    "Title": "Hallway to Stairs",
   },
   {
     "AllowedCommands": 0,
@@ -1121,7 +1121,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 0, 0, 0, 0],
     "SubmittedBy": "_Group_8",
     "SubmittedDate": "2020-10-01T13:40:57.733",
-    "Title": "ENG101 ",
+    "Title": "Round and Round",
   },
   {
     "AllowedCommands": 0,
@@ -1167,7 +1167,7 @@ const Boards: Level[] = [
     "SubLengths": [3, 2, 2, 0, 0],
     "SubmittedBy": "bruhboys",
     "SubmittedDate": "2021-10-04T15:34:42.433",
-    "Title": "ENGR 101- bruhboys",
+    "Title": "Round and Round and Round",
   },
   {
     "AllowedCommands": 0,
@@ -1213,53 +1213,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 0, 0, 0, 0],
     "SubmittedBy": "pschbb12",
     "SubmittedDate": "2023-04-04T10:13:30.05",
-    "Title": "vid test Level 8",
-  },
-  {
-    "AllowedCommands": 0,
-    "Colors": [
-      "RRRRRRRRRRRRRRRR",
-      "RRRRRRRRRRRRBBRR",
-      "RRRRRRRRRRRBBRRR",
-      "RRRRRRRRRRBBRRRR",
-      "RRRRRRRRRBBRRRRR",
-      "RRRRRRRRBBRRRRRR",
-      "RRRRRRRBBRRRRRRR",
-      "RRRRRRBBRRRRRRRR",
-      "RRRRRBBRRRRRRRRR",
-      "RRRRBBRRRRRRRRRR",
-      "RRRBBRRRRRRRRRRR",
-      "RRRRRRRRRRRRRRRR"
-    ],
-    "CommentCount": 15075,
-    "DifficultyVoteCount": 6218,
-    "DifficultyVoteSum": 8662,
-    "Disliked": 548,
-    "Featured": true,
-    "Id": 27,
-    "Items": [
-      "################",
-      "############**##",
-      "###########**###",
-      "##########**####",
-      "#########**#####",
-      "########**######",
-      "#######**#######",
-      "######**########",
-      "#####**#########",
-      "####**##########",
-      "###.*###########",
-      "################"
-    ],
-    "Liked": 6079,
-    "RobotCol": 3,
-    "RobotDir": 0,
-    "RobotRow": 10,
-    "Solutions": 132114,
-    "SubLengths": [10, 0, 0, 0, 0],
-    "SubmittedBy": { "-i:nil": "true" },
-    "SubmittedDate": "2008-12-15T04:03:43",
-    "Title": "Stairs"
+    "Title": "Corner Loops",
   },
   {
     "AllowedCommands": 0,
@@ -1305,7 +1259,7 @@ const Boards: Level[] = [
     "SubLengths": [6, 0, 0, 0, 0],
     "SubmittedBy": "sam0737",
     "SubmittedDate": "2009-03-14T22:36:49.25",
-    "Title": "sh"
+    "Title": "Turn Around"
   },
   {
     "AllowedCommands": 0,
@@ -1351,7 +1305,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 4, 0, 0, 0],
     "SubmittedBy": "sarsdp",
     "SubmittedDate": "2009-06-03T18:59:04.517",
-    "Title": "Right on red"
+    "Title": "Right on Red"
   },
   {
     "AllowedCommands": 0,
@@ -1397,7 +1351,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 0, 0, 0, 0],
     "SubmittedBy": "jacob_c",
     "SubmittedDate": "2009-03-07T16:54:07.39",
-    "Title": "zipline"
+    "Title": "Zipline"
   },
   {
     "About": "There is a short solution.",
@@ -1444,7 +1398,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 0, 0, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2008-12-15T03:32:01.673",
-    "Title": "Two stripes"
+    "Title": "Two Stripes"
   },
   {
     "AllowedCommands": 0,
@@ -1490,7 +1444,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 0, 0, 0],
     "SubmittedBy": "timotheeee",
     "SubmittedDate": "2009-06-02T11:35:20.983",
-    "Title": "mountains"
+    "Title": "Mountains"
   },
   {
     "AllowedCommands": 0,
@@ -1536,7 +1490,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 0, 0, 0],
     "SubmittedBy": "wallacoloo",
     "SubmittedDate": "2009-03-28T18:28:13.797",
-    "Title": "right on red, ??? on green"
+    "Title": "Right on Red, ??? on Green"
   },
   {
     "AllowedCommands": 0,
@@ -1582,7 +1536,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 0, 0, 0, 0],
     "SubmittedBy": "alvarom",
     "SubmittedDate": "2009-05-09T05:36:56.983",
-    "Title": "spiral web"
+    "Title": "Spiral Web"
   },
   {
     "AllowedCommands": 0,
@@ -1721,7 +1675,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 3, 3, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-02-24T13:40:17.593",
-    "Title": "Smart reuse"
+    "Title": "Smart Reuse"
   },
   {
     "AllowedCommands": 0,
@@ -1767,7 +1721,7 @@ const Boards: Level[] = [
     "SubLengths": [3, 3, 0, 0, 0],
     "SubmittedBy": { "-i:nil": "true" },
     "SubmittedDate": "2008-12-15T03:45:53.843",
-    "Title": "Two functions"
+    "Title": "Two Functions"
   },
   {
     "About": "dizzy yet?",
@@ -2000,7 +1954,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 0, 0, 0],
     "SubmittedBy": "pinkprince",
     "SubmittedDate": "2009-05-02T16:43:49.28",
-    "Title": "Turn And Back Again"
+    "Title": "Turn and Back Again"
   },
   {
     "About": "Red tile... hmmm",
@@ -2093,7 +2047,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 5, 0, 0, 0],
     "SubmittedBy": "glum",
     "SubmittedDate": "2009-02-27T19:43:49.703",
-    "Title": "One star"
+    "Title": "One Star"
   },
   {
     "AllowedCommands": 0,
@@ -2139,7 +2093,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 3, 3, 0, 0],
     "SubmittedBy": "w4keme",
     "SubmittedDate": "2009-03-11T22:30:55.377",
-    "Title": "driving in the uk"
+    "Title": "Driving in the UK"
   },
   {
     "About": "Buzzed.",
@@ -2278,7 +2232,7 @@ const Boards: Level[] = [
     "SubLengths": [7, 7, 0, 0, 0],
     "SubmittedBy": "poiuy",
     "SubmittedDate": "2009-02-24T14:14:58.327",
-    "Title": "The windmill"
+    "Title": "The Windmill"
   },
   {
     "AllowedCommands": 4,
@@ -2324,7 +2278,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 0, 0, 0, 0],
     "SubmittedBy": "prudnikoff",
     "SubmittedDate": "2009-03-20T08:19:58.233",
-    "Title": "Simple flattening"
+    "Title": "Simple Flattening"
   },
   {
     "About": "But I want blue bar!",
@@ -2417,7 +2371,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 0, 0, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-03-20T02:14:06.077",
-    "Title": "Left on green... the first time"
+    "Title": "Left on Green... the First Time"
   },
   {
     "About": "Learn to paint",
@@ -2464,7 +2418,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 4, 0, 0, 0],
     "SubmittedBy": "wilbert",
     "SubmittedDate": "2009-05-05T03:42:18.233",
-    "Title": "Green turn"
+    "Title": "Green Turn"
   },
   {
     "About": "Left on green, right on green... wait, what?",
@@ -2557,7 +2511,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 0, 0, 0],
     "SubmittedBy": "axelbrz",
     "SubmittedDate": "2009-06-04T01:10:55.017",
-    "Title": "Limit your stack!"
+    "Title": "Limit Your Stack!"
   },
   {
     "AllowedCommands": 7,
@@ -2649,7 +2603,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 5, 0, 0, 0],
     "SubmittedBy": "patatino",
     "SubmittedDate": "2009-03-19T11:59:58.407",
-    "Title": "labyrinth"
+    "Title": "Labyrinth"
   },
   {
     "AllowedCommands": 0,
@@ -2741,7 +2695,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 0, 0, 0, 0],
     "SubmittedBy": "markbyers",
     "SubmittedDate": "2009-05-30T11:20:46.36",
-    "Title": "Turn around"
+    "Title": "Turn Around"
   },
   {
     "AllowedCommands": 0,
@@ -2787,7 +2741,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 0, 0, 0, 0],
     "SubmittedBy": "markbyers",
     "SubmittedDate": "2009-05-30T11:26:42.47",
-    "Title": "Turn around 2"
+    "Title": "Turn Around 2"
   },
   {
     "About": "check all corners...",
@@ -2927,7 +2881,7 @@ const Boards: Level[] = [
     "SubLengths": [6, 3, 0, 0, 0],
     "SubmittedBy": "anthares",
     "SubmittedDate": "2009-03-31T17:00:32.577",
-    "Title": "Make love, not war"
+    "Title": "Make Love, Not War"
   },
   {
     "AllowedCommands": 0,
@@ -2973,7 +2927,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 4, 4, 0, 0],
     "SubmittedBy": "mathew995",
     "SubmittedDate": "2009-03-28T19:22:06.907",
-    "Title": "timer"
+    "Title": "Timer"
   },
   {
     "AllowedCommands": 0,
@@ -3066,7 +3020,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 0, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-03-27T06:26:52.827",
-    "Title": "Let the lines guide you"
+    "Title": "Let the Lines Guide You"
   },
   {
     "AllowedCommands": 0,
@@ -3159,7 +3113,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 6, 0, 0, 0],
     "SubmittedBy": "snydej",
     "SubmittedDate": "2009-03-19T00:59:01.657",
-    "Title": "Missing red tile"
+    "Title": "Missing Red Tile"
   },
   {
     "About": "O_o",
@@ -3253,7 +3207,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 3, 3, 0, 0],
     "SubmittedBy": "evilpettingzoo",
     "SubmittedDate": "2009-04-03T16:30:58.267",
-    "Title": "Fun with paint"
+    "Title": "Fun with Paint"
   },
   {
     "AllowedCommands": 0,
@@ -3299,7 +3253,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 2, 2, 2, 2],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-03-02T05:16:54.5",
-    "Title": "Simple spiral"
+    "Title": "Simple Spiral"
   },
   {
     "AllowedCommands": 2,
@@ -3345,7 +3299,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 3, 0, 0, 0],
     "SubmittedBy": "rainault",
     "SubmittedDate": "2009-05-11T21:17:46.407",
-    "Title": "Feeling a little cross"
+    "Title": "Feeling a Little Cross"
   },
   {
     "AllowedCommands": 0,
@@ -3391,7 +3345,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 2, 2, 2, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-02-24T14:39:03.593",
-    "Title": "The powers"
+    "Title": "The Powers"
   },
   {
     "About": "\"Walkin' the mile, walkin' the mile...\"",
@@ -3438,7 +3392,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 4, 0, 0, 0],
     "SubmittedBy": "rilo",
     "SubmittedDate": "2009-05-19T19:42:48.75",
-    "Title": "The green mile"
+    "Title": "The Green Mile"
   },
   {
     "About": "A simple puzzle for understanding the call stack",
@@ -3578,7 +3532,7 @@ const Boards: Level[] = [
     "SubLengths": [3, 4, 4, 0, 0],
     "SubmittedBy": "wallacoloo",
     "SubmittedDate": "2009-04-07T19:45:48.733",
-    "Title": "up or down?"
+    "Title": "Up or Down?"
   },
   {
     "AllowedCommands": 0,
@@ -3624,7 +3578,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 0, 0, 0, 0],
     "SubmittedBy": "ajji",
     "SubmittedDate": "2009-05-12T20:41:32.297",
-    "Title": "Up then Down"
+    "Title": "Up Then Down"
   },
   {
     "AllowedCommands": 0,
@@ -3670,7 +3624,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 0, 0, 0],
     "SubmittedBy": "markbyers",
     "SubmittedDate": "2009-05-04T14:29:50.173",
-    "Title": "Not yet... not yet..."
+    "Title": "Not Yet... Not Yet..."
   },
   {
     "AllowedCommands": 0,
@@ -3716,7 +3670,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 0, 0, 0],
     "SubmittedBy": "jacob_c",
     "SubmittedDate": "2009-03-07T14:51:46.203",
-    "Title": "coroutines"
+    "Title": "Coroutines"
   },
   {
     "AllowedCommands": 0,
@@ -3762,7 +3716,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 10, 10, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2008-12-15T03:32:00.627",
-    "Title": "The star-studded path I"
+    "Title": "The Star-studded Path I"
   },
   {
     "AllowedCommands": 0,
@@ -3808,7 +3762,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 0, 0, 0, 0],
     "SubmittedBy": "jacob_c",
     "SubmittedDate": "2009-03-08T15:57:02.517",
-    "Title": "zipline 2"
+    "Title": "Zipline 2"
   },
   {
     "AllowedCommands": 0,
@@ -3854,7 +3808,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 4, 0, 0, 0],
     "SubmittedBy": "wallacoloo",
     "SubmittedDate": "2009-03-28T20:50:30.923",
-    "Title": "propeller"
+    "Title": "Propeller"
   },
   {
     "About": " ",
@@ -3901,7 +3855,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 4, 4, 0, 0],
     "SubmittedBy": { "-i:nil": "true" },
     "SubmittedDate": "2008-12-15T03:57:50.657",
-    "Title": "A window"
+    "Title": "A Window"
   },
   {
     "AllowedCommands": 0,
@@ -3947,7 +3901,7 @@ const Boards: Level[] = [
     "SubLengths": [3, 3, 3, 3, 0],
     "SubmittedBy": "rafaelromao",
     "SubmittedDate": "2009-04-20T18:46:43.14",
-    "Title": "Upstairs, downstairs"
+    "Title": "Upstairs, Downstairs"
   },
   {
     "About": "Can you take both?",
@@ -4088,7 +4042,7 @@ const Boards: Level[] = [
     "SubLengths": [3, 3, 0, 0, 0],
     "SubmittedBy": "ammonzing",
     "SubmittedDate": "2009-05-12T02:41:12.72",
-    "Title": "marine march "
+    "Title": "Marine March"
   },
   {
     "About": "it's easy",
@@ -4273,7 +4227,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 10, 0, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-02-21T14:36:33.077",
-    "Title": "On the edge"
+    "Title": "On the Edge"
   },
   {
     "AllowedCommands": 7,
@@ -4319,7 +4273,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 3, 0, 0, 0],
     "SubmittedBy": "shahbawany",
     "SubmittedDate": "2009-04-28T22:52:48.453",
-    "Title": "parity snake"
+    "Title": "Parity Snake"
   },
   {
     "About": "\"Turn right when you get up there.\"",
@@ -4413,7 +4367,7 @@ const Boards: Level[] = [
     "SubLengths": [8, 0, 0, 0, 0],
     "SubmittedBy": "matush",
     "SubmittedDate": "2009-05-01T16:58:39.077",
-    "Title": "black windows"
+    "Title": "Black Windows"
   },
   {
     "About": "This puzzle is dedicated to those that enjoy bad puns.",
@@ -4460,7 +4414,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 2, 2, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2008-12-15T03:32:00.047",
-    "Title": "Can you reach the stars?"
+    "Title": "Can You Reach the Stars?"
   },
   {
     "About": "Boost on green, left on red and ...",
@@ -4647,7 +4601,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 5, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2008-12-15T03:32:01.157",
-    "Title": "Spiral to victory"
+    "Title": "Spiral to Victory"
   },
   {
     "AllowedCommands": 6,
@@ -4693,7 +4647,7 @@ const Boards: Level[] = [
     "SubLengths": [3, 4, 0, 0, 0],
     "SubmittedBy": "rainault",
     "SubmittedDate": "2009-05-11T21:47:08.53",
-    "Title": "Movable paint"
+    "Title": "Movable Paint"
   },
   {
     "About": "Toggle at junctions",
@@ -4879,7 +4833,7 @@ const Boards: Level[] = [
     "SubLengths": [3, 6, 0, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-03-24T00:04:44.827",
-    "Title": "Cut in half"
+    "Title": "Cut in Half"
   },
   {
     "About": "Upsides and Downsides",
@@ -5064,7 +5018,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 0, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-03-25T16:40:47.86",
-    "Title": "Fix the path"
+    "Title": "Fix the Path"
   },
   {
     "AllowedCommands": 0,
@@ -5110,7 +5064,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 10, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-03-03T20:30:22.203",
-    "Title": "Incomplete grid"
+    "Title": "Incomplete Grid"
   },
   {
     "About": "A themed descent into madness.",
@@ -5252,7 +5206,7 @@ const Boards: Level[] = [
     "SubLengths": [2, 5, 0, 0, 0],
     "SubmittedBy": "rainault",
     "SubmittedDate": "2009-05-11T00:19:52.78",
-    "Title": "Recursive turning"
+    "Title": "Recursive Turning"
   },
   {
     "AllowedCommands": 0,
@@ -5344,7 +5298,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 0, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-02-21T01:38:54.937",
-    "Title": "Don't fall off the spiral"
+    "Title": "Don't Fall Off the Spiral"
   },
   {
     "About": "Are very uncomfortable.",
@@ -5437,7 +5391,7 @@ const Boards: Level[] = [
     "SubLengths": [8, 0, 0, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-02-26T19:40:16.267",
-    "Title": "Red-Green is the code"
+    "Title": "Red-Green Is the Code"
   },
   {
     "AllowedCommands": 0,
@@ -5529,7 +5483,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 10, 10, 0, 0],
     "SubmittedBy": "willbir",
     "SubmittedDate": "2009-05-20T11:11:22.72",
-    "Title": "8 ways"
+    "Title": "8 Ways"
   },
   {
     "About": "All tiles should be blue when you finish the level.",
@@ -5576,7 +5530,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 3, 2, 0, 0],
     "SubmittedBy": "rainault",
     "SubmittedDate": "2009-05-15T04:25:57.36",
-    "Title": "Bumpin' around"
+    "Title": "Bumpin' Around"
   },
   {
     "About": "So close, yet so far",
@@ -5669,7 +5623,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 10, 5, 5, 10],
     "SubmittedBy": "alvarom",
     "SubmittedDate": "2009-05-13T04:16:48.563",
-    "Title": "mind the gap"
+    "Title": "Mind the Gap"
   },
   {
     "About": "Red means left... no, right... er, left.",
@@ -5716,7 +5670,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 0, 0, 0],
     "SubmittedBy": "stingray",
     "SubmittedDate": "2009-02-26T04:16:55.157",
-    "Title": "Zig zig"
+    "Title": "Zig Zig"
   },
   {
     "AllowedCommands": 0,
@@ -5808,7 +5762,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 5, 5, 0],
     "SubmittedBy": "wallacoloo",
     "SubmittedDate": "2009-03-31T19:51:49.593",
-    "Title": "straying from the path"
+    "Title": "Straying From the Path"
   },
   {
     "AllowedCommands": 0,
@@ -6134,7 +6088,7 @@ const Boards: Level[] = [
     "SubLengths": [3, 10, 6, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-04-09T15:07:12.093",
-    "Title": "Power-of-2 generator"
+    "Title": "Power-of-2 Generator"
   },
   {
     "About": "All work and no play...",
@@ -6181,7 +6135,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 3, 0, 0, 0],
     "SubmittedBy": { "-i:nil": "true" },
     "SubmittedDate": "2009-03-03T08:48:13.657",
-    "Title": "Red run"
+    "Title": "Red Run"
   },
   {
     "About": "Read instructions in reversed order, and then carry them out.",
@@ -6228,7 +6182,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 4, 4, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-03-25T04:00:34.173",
-    "Title": "Reversed instructions"
+    "Title": "Reversed Instructions"
   },
   {
     "AllowedCommands": 0,
@@ -6321,7 +6275,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 5, 5, 5, 0],
     "SubmittedBy": "wallacoloo",
     "SubmittedDate": "2009-04-01T22:33:18.627",
-    "Title": "two triangles"
+    "Title": "Two Triangles"
   },
   {
     "About": "...can be confusing.",
@@ -6368,7 +6322,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 5, 5, 0, 0],
     "SubmittedBy": "wallacoloo",
     "SubmittedDate": "2009-03-29T19:34:54.297",
-    "Title": "Getting directions..."
+    "Title": "Getting Directions..."
   },
   {
     "About": "Recursion is like a spring - it stores energy",
@@ -6509,7 +6463,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 0, 0, 0, 0],
     "SubmittedBy": "evko",
     "SubmittedDate": "2009-03-09T08:32:00.657",
-    "Title": "Second kind of memory"
+    "Title": "Second Kind of Memory"
   },
   {
     "AllowedCommands": 1,
@@ -6601,7 +6555,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 5, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-03-02T16:29:32.86",
-    "Title": "Less or more?"
+    "Title": "Less or More?"
   },
   {
     "About": "Red is left, Green is right",
@@ -6648,7 +6602,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 5, 0, 0],
     "SubmittedBy": "snydej",
     "SubmittedDate": "2009-04-06T12:05:43.203",
-    "Title": "Follow directions II"
+    "Title": "Follow Directions II"
   },
   {
     "About": "a little harder than the first",
@@ -6836,7 +6790,7 @@ const Boards: Level[] = [
     "SubLengths": [4, 5, 5, 0, 0],
     "SubmittedBy": "snydej",
     "SubmittedDate": "2009-04-06T04:02:23.767",
-    "Title": "Follow directions"
+    "Title": "Follow Directions"
   },
   {
     "AllowedCommands": 0,
@@ -6882,7 +6836,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 5, 5, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-03-05T14:31:08.203",
-    "Title": "Convex shape"
+    "Title": "Convex Shape"
   },
   {
     "AllowedCommands": 1,
@@ -6928,7 +6882,7 @@ const Boards: Level[] = [
     "SubLengths": [7, 4, 4, 0, 0],
     "SubmittedBy": "evko",
     "SubmittedDate": "2009-03-25T17:44:55.407",
-    "Title": "Another speed control"
+    "Title": "Another Speed Control"
   },
   {
     "About": "Variation on \"Reflection\" theme",
@@ -7348,7 +7302,7 @@ const Boards: Level[] = [
     "SubLengths": [3, 4, 4, 4, 0],
     "SubmittedBy": "evko",
     "SubmittedDate": "2009-03-05T15:13:05.767",
-    "Title": "Smart lemma"
+    "Title": "Smart Lemma"
   },
   {
     "AllowedCommands": 0,
@@ -7394,7 +7348,7 @@ const Boards: Level[] = [
     "SubLengths": [5, 4, 3, 3, 0],
     "SubmittedBy": "evko",
     "SubmittedDate": "2009-03-19T20:34:32.64",
-    "Title": "\"960\" on blue"
+    "Title": "\"960\" on Blue"
   },
   {
     "About": "Colors and recursion",
@@ -7674,7 +7628,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 10, 10, 5, 5],
     "SubmittedBy": "snydej",
     "SubmittedDate": "2009-03-28T04:12:56.627",
-    "Title": "Can you count in binary?"
+    "Title": "Can You Count in Binary?"
   },
   {
     "About": "It's small... and you have the \"Fast\" button",
@@ -7721,7 +7675,7 @@ const Boards: Level[] = [
     "SubLengths": [10, 5, 0, 0, 0],
     "SubmittedBy": "igoro",
     "SubmittedDate": "2009-02-21T07:23:28.517",
-    "Title": "Explore the world"
+    "Title": "Explore the World"
   },
   {
     "AllowedCommands": 5,
@@ -7998,7 +7952,7 @@ const Boards: Level[] = [
     "SubLengths": [6, 0, 0, 0, 0],
     "SubmittedBy": "Roses",
     "SubmittedDate": "2021-12-18T14:54:04.71",
-    "Title": "red square with a hole 2.0",
+    "Title": "Red square With a Hole 2.0",
   },
   {
     "AllowedCommands": 0,
@@ -8182,7 +8136,7 @@ const Boards: Level[] = [
     "SubLengths": [6, 0, 0, 0, 0],
     "SubmittedBy": "bli62",
     "SubmittedDate": "2021-09-30T13:02:26.15",
-    "Title": "group1",
+    "Title": "Black Diamond",
   },
 ]
 
