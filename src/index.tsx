@@ -28,10 +28,16 @@ class App extends Component<{}, AppState> {
     };
   }
 
-  getSelectedBoardFromUrl(): number | null {
+  getSelectedBoardFromUrl(): number {
     const searchParams = new URLSearchParams(window.location.search);
     const level = parseInt(searchParams.get('level'), 10);
-    return isNaN(level) ? null : level;  // Ensure that the level is a number
+    if (isNaN(level)) {
+      return -1;
+    }
+    if (!Boards.find(b => b.Id === level)) {
+      return -1;
+    }
+    return level;
   }
 
   handleLevelComplete = (levelId: number) => {
