@@ -158,6 +158,52 @@ const Boards: Level[] = [
     "Title": "Tutorial: Part 4",
   },
   {
+    "AllowedCommands": 4,
+    "Colors": [
+      "RRRRRRRRRRRRRRRR",
+      "RRRRRRRRRRRRRRRR",
+      "RRRRRRRRRRRRRRRR",
+      "RRRRRRRRRRRRRRRR",
+      "RRRRRRRRRRBRRRRR",
+      "RRRRRRRRRRBRRRRR",
+      "RRRRRRRBBBGRRRRR",
+      "RRRRRRRRRRBRRRRR",
+      "RRRRRRRRRRBRRRRR",
+      "RRRRRRRRRRRRRRRR",
+      "RRRRRRRRRRRRRRRR",
+      "RRRRRRRRRRRRRRRR"
+    ],
+    "CommentCount": 0,
+    "DifficultyVoteCount": 0,
+    "DifficultyVoteSum": 0,
+    "Disliked": 0,
+    "Featured": false,
+    "Id": 17299,
+    "Items": [
+      "################",
+      "################",
+      "################",
+      "##########*#####",
+      "##########.#####",
+      "##########.#####",
+      "#######...*#####",
+      "##########.#####",
+      "##########.#####",
+      "##########*#####",
+      "################",
+      "################"
+    ],
+    "Liked": 0,
+    "RobotCol": 7,
+    "RobotDir": 0,
+    "RobotRow": 6,
+    "Solutions": 1,
+    "SubLengths": [6, 0, 0, 0, 0],
+    "SubmittedBy": "hiitsme4",
+    "SubmittedDate": "2024-05-27T09:28:49.28",
+    "Title": "Tutorial: Part 5"
+  },
+  {
     "AllowedCommands": 0,
     "Colors": [
       "RRRRRRRRRRRRRRRR",
@@ -848,7 +894,7 @@ const Boards: Level[] = [
     "Title": "10x10 Square",
   },
   {
-    "AllowedCommands": 7,
+    "AllowedCommands": 0,
     "Colors": [
       "RRRRRRRRRRRRRRRR",
       "RRRRRRRRRRRRRRRR",
