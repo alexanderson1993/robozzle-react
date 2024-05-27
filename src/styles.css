@@ -234,6 +234,11 @@ body {
     linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 
+.command.f0 {
+  background-image: url("./img/f0.svg"),
+    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
+}
+
 .command.f1 {
   background-image: url("./img/f1.svg"),
     linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
@@ -256,11 +261,6 @@ body {
 
 .command.f5 {
   background-image: url("./img/f5.svg"),
-    linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
-}
-
-.command.f6 {
-  background-image: url("./img/f6.svg"),
     linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 
