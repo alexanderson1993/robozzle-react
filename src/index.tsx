@@ -40,7 +40,7 @@ class App extends Component<{}, AppState> {
     return level;
   }
 
-  handleLevelComplete = (levelId: number) => {
+  handleLevelComplete = (levelId: number): void => {
     this.setState((prevState) => {
       const updatedCompletedLevels = new Set(prevState.completedLevels).add(levelId);
       localStorage.setItem('completedLevels', JSON.stringify(Array.from(updatedCompletedLevels)));
@@ -49,6 +49,13 @@ class App extends Component<{}, AppState> {
       };
     });
   };
+
+  printProgress = (): void => {
+    setTimeout(() => {
+      const sortedLevels = Array.from(this.state.completedLevels).sort((a, b) => a - b);
+      window.alert(`You've completed ${sortedLevels.length} levels: \n${sortedLevels}`)
+    });
+  }
 
   render() {
     const { dragging, selectedBoard, completedLevels } = this.state;
@@ -63,6 +70,7 @@ class App extends Component<{}, AppState> {
           Fork me on GitHub
         </GitHubForkRibbon>
         <div className="boards">
+          <h1 onClick={this.printProgress} >Robozzle-React</h1>
           {Boards.map(d => (
             <p
               key={`board-${d.Id}`}
