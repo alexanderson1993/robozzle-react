@@ -81,9 +81,11 @@ body {
   box-sizing: content-box;
   flex: 1;
   border-radius: 10%;
-  background-image: linear-gradient(to top,
-      hsla(0, 0%, 0%, 0) 0%,
-      hsla(0, 0%, 0%, 0.5) 100%);
+  background-image: linear-gradient(
+    to top,
+    hsla(0, 0%, 0%, 0) 0%,
+    hsla(0, 0%, 0%, 0.5) 100%
+  );
   border: solid 1px hsla(0, 67%, 40%);
   transition: background-color var(--delay) ease, border-color var(--delay) ease;
   /* border-right: solid 1px rgba(255, 255, 255, 0.5);
@@ -214,7 +216,7 @@ body {
   background-color: hsla(0, 0%, 70%, 1);
   border: solid 1px hsla(0, 0%, 40%);
   background-size: 70%, 100%;
-  background-image: url(),
+  background-image: url("/"),
     linear-gradient(to top, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 100%);
 }
 
@@ -303,23 +305,29 @@ body {
 }
 
 .command.paint.paint-red:after {
-  background-image: linear-gradient(to top,
-      hsla(0, 67%, 40%, 1) 0%,
-      hsla(0, 67%, 20%, 1) 100%);
+  background-image: linear-gradient(
+    to top,
+    hsla(0, 67%, 40%, 1) 0%,
+    hsla(0, 67%, 20%, 1) 100%
+  );
   border-color: hsla(0, 67%, 10%);
 }
 
 .command.paint.paint-blue:after {
-  background-image: linear-gradient(to top,
-      hsla(210, 67%, 40%, 1) 0%,
-      hsla(210, 67%, 20%, 1) 100%);
+  background-image: linear-gradient(
+    to top,
+    hsla(210, 67%, 40%, 1) 0%,
+    hsla(210, 67%, 20%, 1) 100%
+  );
   border-color: hsla(210, 67%, 10%);
 }
 
 .command.paint.paint-green:after {
-  background-image: linear-gradient(to top,
-      hsla(128, 67%, 40%, 1) 0%,
-      hsla(128, 67%, 20%, 1) 100%);
+  background-image: linear-gradient(
+    to top,
+    hsla(128, 67%, 40%, 1) 0%,
+    hsla(128, 67%, 20%, 1) 100%
+  );
   border-color: hsla(128, 67%, 10%);
 }
 
