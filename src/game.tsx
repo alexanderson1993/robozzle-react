@@ -142,7 +142,6 @@ class Game extends Component<GameProps, GameState> {
       if (state.dragging.color) newAction["color"] = state.dragging.color;
       if (state.dragging.color === "clear") newAction["color"] = null;
       const func = state.functions[funcKey] || [];
-      console.log(newAction)
       func[position] = { ...func[position], ...newAction };
       return {
         dragging: null,
@@ -154,11 +153,11 @@ class Game extends Component<GameProps, GameState> {
   start = () => {
     this.reset();
     clearTimeout(this.timeout);
-    // Start with F1
+    // Start with F0 (aka "Main")
     const { functions } = this.state;
-    const starting = functions.f1;
+    const starting = functions.f0;
     const stack: StackElement[] = [].concat(starting);
-    this.setState({ stack, clean: false, currentInstruction: { function: "f1", index: 0 } });
+    this.setState({ stack, clean: false, currentInstruction: { function: "f0", index: 0 } });
     setTimeout(this.runStack, this.state.stepDelay);
   };
 
@@ -242,16 +241,17 @@ class Game extends Component<GameProps, GameState> {
             default:
               return state;
           }
+        case "f0":
         case "f1":
         case "f2":
         case "f3":
         case "f4":
         case "f5":
-        case "f6":
           this.runNow();
           return {
             ...state,
-            stack: functions[action].concat(stack)
+            stack: functions[action].concat(stack),
+            currentInstruction: null,
           };
         case "paint-red":
         case "paint-green":

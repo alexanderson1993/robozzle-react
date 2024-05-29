@@ -32,20 +32,20 @@ const Controls = ({ SubLengths, dragging, functions, onMouseDown, currentInstruc
       {SubLengths.map(
         (s, i) =>
           s > 0 && (
-            <div key={`f${i + 1}`} className="function-holder">
+            <div key={`f${i}`} className="function-holder">
               <img
                 draggable="false"
-                src={require(`./img/f${i + 1}.svg`)}
-                alt={`F${i + 1}`}
+                src={require(`./img/f${i}.svg`)}
+                alt={`F${i}`}
               />
               <div className="function-area">
                 {Array(s)
                   .fill(0)
                   .map((f, fi) => (
                     <div
-                      key={`f${i + 1}-${fi}`}
-                      className={`function-block ${functionClasses(`f${i + 1}`, fi, functions, currentInstruction)} `}
-                      data-funcnum={`f${i + 1}`}
+                      key={`f${i}-${fi}`}
+                      className={`function-block ${functionClasses(`f${i}`, fi, functions, currentInstruction)} `}
+                      data-funcnum={`f${i}`}
                       data-position={fi}
                       onMouseDown={onMouseDown}
                     />
