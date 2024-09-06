@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/robozzle-react/static/css/main.633d12a8.css",
-    "main.js": "/robozzle-react/static/js/main.a6fdc770.js",
+    "main.css": "/robozzle-react/static/css/main.c0d32e52.css",
+    "main.js": "/robozzle-react/static/js/main.4d2a633a.js",
+    "static/media/index.tsx": "/robozzle-react/static/media/index.386500e9e6b53d4774ad.tsx",
     "static/media/ship.svg": "/robozzle-react/static/media/ship.91224f80c163d11517f1ad3293557d8b.svg",
+    "static/media/f0.svg": "/robozzle-react/static/media/f0.17a1b94e56510843c729.svg",
     "static/media/f3.svg": "/robozzle-react/static/media/f3.a394fda28ef6640655ec.svg",
-    "static/media/f6.svg": "/robozzle-react/static/media/f6.418e0bbace95f83fa9ce.svg",
     "static/media/f5.svg": "/robozzle-react/static/media/f5.eb98d464f295c8588187.svg",
     "static/media/f2.svg": "/robozzle-react/static/media/f2.44128c2623e43492ac2a.svg",
     "static/media/star.svg": "/robozzle-react/static/media/star.452eab406c29df207139.svg",
@@ -14,11 +15,11 @@
     "static/media/f4.svg": "/robozzle-react/static/media/f4.029274566cdb0848df65.svg",
     "static/media/f1.svg": "/robozzle-react/static/media/f1.e63357ea000cb3917bba.svg",
     "index.html": "/robozzle-react/index.html",
-    "main.633d12a8.css.map": "/robozzle-react/static/css/main.633d12a8.css.map",
-    "main.a6fdc770.js.map": "/robozzle-react/static/js/main.a6fdc770.js.map"
+    "main.c0d32e52.css.map": "/robozzle-react/static/css/main.c0d32e52.css.map",
+    "main.4d2a633a.js.map": "/robozzle-react/static/js/main.4d2a633a.js.map"
   },
   "entrypoints": [
-    "static/css/main.633d12a8.css",
-    "static/js/main.a6fdc770.js"
+    "static/css/main.c0d32e52.css",
+    "static/js/main.4d2a633a.js"
   ]
 }
