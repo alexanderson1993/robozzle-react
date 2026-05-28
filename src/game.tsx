@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import GameBoard from "./gameboard";
 import Controls from "./controls";
 import Commands from "./commands";
-import { CurrentInstruction, DragInfo, DragPosition, FunctionCommands, Level, StackElement } from "./baseTypes";
+import type { CurrentInstruction, DragInfo, DragPosition, FunctionCommands, Level, StackElement } from "./baseTypes";
 
 function replaceAt(string: string, index: number, replace: string): string {
   return string.substring(0, index) + replace + string.substring(index + 1);
@@ -32,7 +32,7 @@ interface GameProps {
 
 class Game extends Component<GameProps, GameState> {
 
-  timeout: NodeJS.Timeout;
+  timeout?: ReturnType<typeof setTimeout>;
 
   constructor(props: GameProps) {
     super(props);
@@ -64,8 +64,8 @@ class Game extends Component<GameProps, GameState> {
 
   commandMouseDown = (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const target = evt.target as HTMLElement;
-    const funcnum: string = target.dataset.funcnum;
-    const index: number = parseInt(target.dataset.position, 10);
+    const funcnum: string = target.dataset.funcnum!;
+    const index: number = parseInt(target.dataset.position!, 10);
 
     const position = {
       x: evt.clientX - 15,
@@ -76,8 +76,8 @@ class Game extends Component<GameProps, GameState> {
       if (state.functions[funcnum] && state.functions[funcnum][index]) {
         const { command, color } = state.functions[funcnum][index];
         this.props.setDragging(true);
-        document.addEventListener("mousemove", this.mouseMove);
-        document.addEventListener("mouseup", this.mouseUp);
+        document.addEventListener("pointermove", this.mouseMove);
+        document.addEventListener("pointerup", this.mouseUp);
         return {
           ...state,
           dragging: {
@@ -110,8 +110,8 @@ class Game extends Component<GameProps, GameState> {
         color
       }
     });
-    document.addEventListener("mousemove", this.mouseMove);
-    document.addEventListener("mouseup", this.mouseUp);
+    document.addEventListener("pointermove", this.mouseMove);
+    document.addEventListener("pointerup", this.mouseUp);
   };
 
   mouseMove = (evt: MouseEvent) => {
@@ -127,9 +127,9 @@ class Game extends Component<GameProps, GameState> {
   };
 
   mouseUp = (evt: MouseEvent) => {
-    document.removeEventListener("mousemove", this.mouseMove);
+    document.removeEventListener("pointermove", this.mouseMove);
     this.props.setDragging(false);
-    document.removeEventListener("mouseup", this.mouseUp);
+    document.removeEventListener("pointerup", this.mouseUp);
 
     const target = evt.target as HTMLElement;
     const funcKey: string = target.dataset.funcnum;

@@ -1,4 +1,3 @@
-import React from "react";
 import shipImage from './img/ship.svg';
 
 const cellColor = (row: number, col: number, Colors: string[]): string | null => {

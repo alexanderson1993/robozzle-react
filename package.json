@@ -6,24 +6,19 @@
   "homepage": "http://alexanderson1993.github.io/robozzle-react",
   "main": "src/index.js",
   "dependencies": {
-    "react-dom": "18.3.1",
-    "react-github-fork-ribbon": "^0.7.0"
+    "react": "^19.2.6",
+    "react-dom": "19.2.6"
   },
   "devDependencies": {
-    "@types/react": "^18.3.2",
-    "@types/react-dom": "^18.3.0",
-    "gh-pages": "^6.1.0",
-    "react": "^18.3.1",
-    "react-scripts": "^5.0.1",
-    "typescript": "^4.0.0"
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.14"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [

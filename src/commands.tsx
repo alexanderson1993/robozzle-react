@@ -1,31 +1,32 @@
-import React, { Fragment } from "react";
-import { DragInfo } from "./baseTypes";
+import { Fragment } from "react";
+import type { DragInfo } from "./baseTypes";
 
-const Red = ({ onMouseDown }) => {
+type MouseDown = (pos: { x: number, y: number }, command: string | null, command2?: string) => void
+const Red = ({ onMouseDown }: { onMouseDown: MouseDown }) => {
   return (
     <div
       className="command paint paint-red"
-      onMouseDown={evt =>
+      onPointerDown={evt =>
         onMouseDown({ x: evt.clientX, y: evt.clientY }, "paint-red")
       }
     />
   );
 };
-const Green = ({ onMouseDown }) => {
+const Green = ({ onMouseDown }: { onMouseDown: MouseDown }) => {
   return (
     <div
       className="command paint paint-green"
-      onMouseDown={evt =>
+      onPointerDown={evt =>
         onMouseDown({ x: evt.clientX, y: evt.clientY }, "paint-green")
       }
     />
   );
 };
-const Blue = ({ onMouseDown }) => {
+const Blue = ({ onMouseDown }: { onMouseDown: MouseDown }) => {
   return (
     <div
       className="command paint paint-blue"
-      onMouseDown={evt =>
+      onPointerDown={evt =>
         onMouseDown({ x: evt.clientX, y: evt.clientY }, "paint-blue")
       }
     />
@@ -35,7 +36,7 @@ const Blue = ({ onMouseDown }) => {
 
 interface ColorCommandsProps {
   colors: number,
-  onMouseDown: any,
+  onMouseDown: MouseDown,
 }
 
 
@@ -105,7 +106,7 @@ interface CommandsProps {
   SubLengths: number[],
   AllowedCommands: number,
   dragging: DragInfo | null,
-  onMouseDown: any,
+  onMouseDown: MouseDown,
 }
 
 
@@ -114,19 +115,19 @@ const Commands = ({ SubLengths, AllowedCommands, dragging, onMouseDown }: Comman
     <div className={`commands-area ${dragging ? "dragging" : ""}`}>
       <div
         className="command forward"
-        onMouseDown={evt =>
+        onPointerDown={evt =>
           onMouseDown({ x: evt.clientX, y: evt.clientY }, "forward", "")
         }
       />
       <div
         className="command left"
-        onMouseDown={evt =>
+        onPointerDown={evt =>
           onMouseDown({ x: evt.clientX, y: evt.clientY }, "left", "")
         }
       />
       <div
         className="command right"
-        onMouseDown={evt =>
+        onPointerDown={evt =>
           onMouseDown({ x: evt.clientX, y: evt.clientY }, "right", "")
         }
       />
@@ -137,7 +138,7 @@ const Commands = ({ SubLengths, AllowedCommands, dragging, onMouseDown }: Comman
             <div
               key={`sublength-${i}`}
               className={`command f${i}`}
-              onMouseDown={evt =>
+              onPointerDown={evt =>
                 onMouseDown({ x: evt.clientX, y: evt.clientY }, `f${i}`)
               }
             />
@@ -150,25 +151,25 @@ const Commands = ({ SubLengths, AllowedCommands, dragging, onMouseDown }: Comman
       />
       <div
         className="command color clear"
-        onMouseDown={evt =>
+        onPointerDown={evt =>
           onMouseDown({ x: evt.clientX, y: evt.clientY }, null, "clear")
         }
       />
       <div
         className="command color red"
-        onMouseDown={evt =>
+        onPointerDown={evt =>
           onMouseDown({ x: evt.clientX, y: evt.clientY }, null, "red")
         }
       />
       <div
         className="command color green"
-        onMouseDown={evt =>
+        onPointerDown={evt =>
           onMouseDown({ x: evt.clientX, y: evt.clientY }, null, "green")
         }
       />
       <div
         className="command color blue"
-        onMouseDown={evt =>
+        onPointerDown={evt =>
           onMouseDown({ x: evt.clientX, y: evt.clientY }, null, "blue")
         }
       />

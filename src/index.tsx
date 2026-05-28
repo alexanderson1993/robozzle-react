@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import GitHubForkRibbon from "react-github-fork-ribbon";
+import { Component, StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-import "./styles.css";
 import Boards from "./data";
 import Game from "./game";
 
@@ -17,20 +15,20 @@ interface AppState {
 class App extends Component<{}, AppState> {
   state: AppState;
 
-  constructor(props) {
+  constructor(props: {}) {
     super(props);
     // Initial state
     const completedLevels = new Set<number>(JSON.parse(localStorage.getItem('completedLevels') || '[]'));
     this.state = {
       selectedBoard: this.getSelectedBoardFromUrl() || 285,
-      dragging: null,
+      dragging: false,
       completedLevels: completedLevels,
     };
   }
 
   getSelectedBoardFromUrl(): number {
     const searchParams = new URLSearchParams(window.location.search);
-    const level = parseInt(searchParams.get('level'), 10);
+    const level = parseInt(searchParams.get('level') || "", 10);
     if (isNaN(level)) {
       return -1;
     }
@@ -59,16 +57,9 @@ class App extends Component<{}, AppState> {
 
   render() {
     const { dragging, selectedBoard, completedLevels } = this.state;
+    const board = Boards.find(b => b.Id === selectedBoard)
     return (
       <div className={`App ${dragging ? "dragging" : ""}`}>
-        <GitHubForkRibbon
-          href="//github.com/alexanderson1993/robozzle-react"
-          target="_blank"
-          position="left-bottom"
-          color="black"
-        >
-          Fork me on GitHub
-        </GitHubForkRibbon>
         <div className="boards">
           <h1 onClick={this.printProgress} >Robozzle-React</h1>
           {Boards.map(d => (
@@ -86,11 +77,11 @@ class App extends Component<{}, AppState> {
             </p>
           ))}
         </div>
-        {selectedBoard && (
+        {board && (
           <Game
             key={selectedBoard}
             setDragging={which => this.setState({ dragging: which })}
-            board={Boards.find(b => b.Id === selectedBoard)}
+            board={board}
             onLevelComplete={() => this.handleLevelComplete(selectedBoard)}
           />
         )}
@@ -99,5 +90,8 @@ class App extends Component<{}, AppState> {
   }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+)

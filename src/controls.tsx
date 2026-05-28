@@ -1,6 +1,14 @@
-import React from "react";
-import { CurrentInstruction, DragInfo, FunctionCommands } from "./baseTypes";
 
+import type { CurrentInstruction, DragInfo, FunctionCommands } from "./baseTypes";
+
+import F0 from './img/f0.svg'
+import F1 from './img/f1.svg'
+import F2 from './img/f2.svg'
+import F3 from './img/f3.svg'
+import F4 from './img/f4.svg'
+import F5 from './img/f5.svg'
+
+const fnimg = [F0, F1, F2, F3, F4, F5]
 
 const functionClasses = (func: string, pos: number, functions: FunctionCommands, currentInstruction: CurrentInstruction) => {
   const funcObj = functions[func];
@@ -35,7 +43,7 @@ const Controls = ({ SubLengths, dragging, functions, onMouseDown, currentInstruc
             <div key={`f${i}`} className="function-holder">
               <img
                 draggable="false"
-                src={require(`./img/f${i}.svg`)}
+                src={fnimg[i]}
                 alt={`F${i}`}
               />
               <div className="function-area">

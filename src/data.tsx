@@ -1,4 +1,4 @@
-import { Level } from "./baseTypes";
+import type { Level } from "./baseTypes";
 
 const Boards: Level[] = [
   {
